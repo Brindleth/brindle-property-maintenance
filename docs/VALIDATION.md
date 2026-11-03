@@ -12,7 +12,9 @@ Verified for this revision:
 - The exact `/brindle-property-maintenance/` production subpath was tested locally. Prerendered HTML places the direct `#concept` URL at the correct section before JavaScript hydration. Concept/reference images loaded successfully, and no warning or error was observed from the tested production origin.
 - The completed construction portfolio remains separate and retains all six actual project photographs. All contact destinations remain `tel:+61451743037`; no call was placed. No backend, booking service or production image-generation service is introduced.
 
-Publication verification is recorded below after deployment. The earlier release records follow for history.
+Published at https://brindleth.github.io/brindle-property-maintenance/#concept. Application commit `386e52db9ed5ce06f7d8a6676c4aa0fb11c4613b`; [GitHub Actions run 41627616885](https://github.com/Brindleth/brindle-property-maintenance/actions/runs/41627616885) completed successfully, including lint, seven tests, build and deployment. The live HTTPS page returned 200, includes all six portfolio figures plus five patio reference buttons in static HTML, and all 43 checked resource URLs returned 200. Live browser verification confirmed the proposal image loaded, the comparison slider reached 100%, and both galleries remain separate. No runtime warning or error was observed after the live navigation. The final screenshot is saved locally as `test-results/brindle-patio-concept-live.jpg` (excluded from Git).
+
+The browser's viewport control initially stalled against an old diagnostic tab. Using the current in-app preview tab resolved the testing connection; the responsive checks above were then completed. Earlier release records follow for history.
 
 ---
 # Portfolio-first revision — 3 November 2026
