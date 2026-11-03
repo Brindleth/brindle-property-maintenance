@@ -53,6 +53,11 @@ export default function ConstructionExperience() {
     const runway = section.current.offsetHeight - window.innerHeight
     window.scrollTo({ top: section.current.offsetTop + runway * stageProgress(next), behavior: reducedMotion ? 'instant' : 'smooth' })
   }
+  function toggleStaticView() {
+    setStaticMode(value => !value)
+    // Keep the visitor at the scene when its long scroll runway is removed/restored.
+    requestAnimationFrame(() => window.scrollTo({ top: section.current?.offsetTop ?? 0, behavior: 'instant' }))
+  }
 
   return <section ref={section} className={`construction-experience ${simple ? 'simple-experience' : ''}`} id="top" aria-label="Interactive construction story">
     <div className="construction-sticky">
@@ -70,7 +75,7 @@ export default function ConstructionExperience() {
       </div>
       <div className="hero-bottom">
         <a className="scroll-cue" href="#about"><span className="scroll-circle"><Arrow /></span><span>SCROLL TO {simple ? 'EXPLORE' : 'BUILD'}<small>Experience makes the difference.</small></span></a>
-        <div className="scene-controls">{!simple && <button onClick={() => setAngle((a) => (a + 1) % 3)} aria-label="Rotate the 3D construction model to the next viewpoint">↻ <span>Rotate view</span></button>}{webgl && !reducedMotion && !failed && <button aria-pressed={staticMode} onClick={() => setStaticMode(!staticMode)}>{staticMode ? 'Enable 3D' : 'Static view'}</button>}</div>
+        <div className="scene-controls">{!simple && <button onClick={() => setAngle((a) => (a + 1) % 3)} aria-label="Rotate the 3D construction model to the next viewpoint">↻ <span>Rotate view</span></button>}{webgl && !reducedMotion && !failed && <button aria-pressed={staticMode} onClick={toggleStaticView}>{staticMode ? 'Enable 3D' : 'Static view'}</button>}</div>
         <span className="hero-experience"><strong>20<span>+</span></strong><span>YEARS OF PRACTICAL<br />LABOURING EXPERIENCE</span></span>
       </div>
       {!simple && <nav className="build-timeline" aria-label="Construction stages">{constructionStages.map((s, i) => <button key={s.label} onClick={() => goToStage(i)} aria-label={`Stage ${i + 1}: ${s.label}`} aria-current={index === i ? 'step' : undefined} className={index === i ? 'active' : index > i ? 'complete' : ''}><span className="timeline-number">0{i + 1}</span><span className="timeline-line" /><span className="timeline-label">{s.label}</span></button>)}</nav>}
