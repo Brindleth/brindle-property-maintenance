@@ -1,3 +1,31 @@
+# Construction-stage slider refinement — 3 November 2026
+
+The owner's refinement keeps the existing identity and construction renderer while replacing the project grid with a minimal four-stage viewer. The full-screen construction sequence now opens the site, with direct access to the actual project. One retained patio visualisation replaces the previous comparison and reference gallery. Three newly generated architectural images appear only in Design Inspiration & Capabilities, with an explicit AI disclosure and per-image labels.
+
+Photo inspection and mapping:
+
+- `1000020847`: early wrapped exterior, with initial metal fixings already present. A completely bare, pre-fixing stage is not verified.
+- `1000020945`: wrap, clips and battens around the wide window.
+- `1000020946`: small-window perimeter detail before cladding, not a separately verified finishing phase.
+- `1000020958`: installed horizontal cladding and white trim around the large window; exposed upper wrap remains visible. Whole-facade completion is not claimed.
+- `1000020943`: optional steel-framing/timber-noggins detail. All original files and derivatives remain preserved; the alternate small-window view does not add another main stage.
+
+Verified locally:
+
+- TypeScript, ESLint, all **11 regression tests**, production build, static prerender and output validator pass. The exact `/brindle-property-maintenance/` deployment base was built and tested.
+- Regression tests cover real-photo mapping, next/previous wraparound, deliberate horizontal swipe thresholds, rejection of vertical/short movements, metadata-free assets, AI separation, phone defaults and the original 3D construction progression.
+- Desktop 3D canvas, final-stage shortcut, model rotation and direct portfolio navigation work. Static view removes the canvas; Enable 3D restores it. The static fallback is prerendered and server/client media detection now hydrates consistently.
+- A direct-link layout issue found during QA was repaired: the opening reserves its scroll height during hydration and restores the requested section anchor after WebGL/fallback selection. Reloading `#work` lands below the fixed header after the canvas loads.
+- Browser verification at measured CSS widths **1440**, **375** and **320** shows no horizontal overflow. Viewport scaling was corrected using the browser's measured device-pixel ratio. On the 320 × 568 layout, the construction viewport now fits the screen and its timeline remains above the call bar.
+- Project controls were exercised with arrows, stage shortcuts, keyboard Home/End and arrow navigation. A horizontal pointer swipe on the 320px image changed Stage 1 to Stage 2. Dragging the native range thumb from the first to final position changed the photograph and caption to Stage 4. Page scrolling and phone navigation remain available.
+- The single patio image has the requested Concept Visualisation — Not Constructed label. The five reference-photo public derivative sets were removed; raw reference JPGs remain local.
+- Three photorealistic inspiration images were generated with the built-in image tool, inspected and saved into the project. Nine responsive WebPs have correct width descriptors, no source EXIF and no production generation dependency. Exact prompts and paths are in `docs/INSPIRATION_ASSETS.md`. No image assets remain missing.
+
+Phone links are checked without placing a call. Mobile testing uses browser emulation and pointer input, not physical Android/iOS hardware. Hardware WebGL failure and reduced-motion OS settings were not simulated; their existing fallback paths remain implemented.
+
+Publication outcome is recorded here after deployment. Earlier release records follow for history.
+
+---
 # Real-photo patio concept revision — 3 November 2026
 
 The owner requested a concept based on the actual patio photographs, similar in appearance to their attached ChatGPT mockup, and reported an error in the previous concept version. The generic Structure / Finish diagram has been replaced completely with a photo-based proposal and a real-reference gallery. The supplied mockup informed appearance only; its completed-project claims were not copied.

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { business } from '../config/business'
 import { Arrow, Brand } from './Icons'
 
-const links = [['#work', 'Portfolio'], ['#about', 'Services'], ['#concept', 'Patio concept'], ['#contact', 'Contact']] as const
+const links = [['#work', 'Portfolio'], ['#about', 'Services'], ['#concept', 'Patio concept'], ['#inspiration', 'Inspiration'], ['#contact', 'Contact']] as const
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -40,7 +40,7 @@ export default function Header() {
     <button ref={menuButton} className="menu-button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Close navigation' : 'Open navigation'} onClick={() => setOpen(!open)}><span /><span /></button>
     {open && <div className="mobile-menu" id="mobile-menu" ref={menu}>
       <span className="eyebrow">GOOD WORK STARTS HERE.</span>
-      <nav aria-label="Mobile navigation">{links.map(([href, text], i) => <a key={href} href={href} onClick={followLink}><sup>0{i + 1}</sup>{text}<Arrow diagonal /></a>)}<a href="#construction" onClick={followLink}><sup>05</sup>3D study<Arrow diagonal /></a></nav>
+      <nav aria-label="Mobile navigation">{links.map(([href, text], i) => <a key={href} href={href} onClick={followLink}><sup>0{i + 1}</sup>{text}<Arrow diagonal /></a>)}<a href="#top" onClick={followLink}><sup>06</sup>3D experience<Arrow diagonal /></a></nav>
       <a className="mobile-menu-call" href={business.telephone}>Let’s talk.<br />{business.phone}<Arrow diagonal /></a>
       <p>{business.serviceArea}</p>
     </div>}

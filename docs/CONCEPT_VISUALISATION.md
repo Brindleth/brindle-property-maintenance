@@ -1,3 +1,5 @@
+> Current revision: the site now displays only the single proposed patio image, as requested. Existing/Proposed/Compare controls and the five-photo reference gallery were removed. Original reference JPGs remain preserved locally; their public derivatives were removed. The generation prompt and provenance below remain the record of the retained image.
+
 # Photo-based patio concept — 3 November 2026
 
 The owner requested a concept using the real supplied patio photos, with a similar look to their supplied ChatGPT website mockup. The mockup is a visual style reference, not evidence of Brindle's completed work or installed electronics.

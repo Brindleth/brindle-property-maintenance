@@ -1,4 +1,4 @@
-import { Component, lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
+import { Component, lazy, Suspense, useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import type { ReactNode } from 'react'
 import { business } from '../config/business'
 import { constructionStages, scrollProgress, stageAt, stageProgress } from '../lib/construction'
@@ -15,15 +15,20 @@ class SceneBoundary extends Component<{ children: ReactNode; onError: () => void
   render() { return this.state.failed ? <StaticConstruction /> : this.props.children }
 }
 
+let webglSupport: boolean | undefined
+const subscribeSupport = () => () => {}
 function supportsWebGL() {
-  try { const canvas = document.createElement('canvas'); const gl = canvas.getContext('webgl2'); if (gl) { gl.getExtension('WEBGL_lose_context')?.loseContext(); return true }; return false } catch { return false }
+  if (webglSupport !== undefined) return webglSupport
+  try { const canvas = document.createElement('canvas'); const gl = canvas.getContext('webgl2'); webglSupport = !!gl; gl?.getExtension('WEBGL_lose_context')?.loseContext() } catch { webglSupport = false }
+  return webglSupport
 }
 
 export default function ConstructionExperience({ onExit }: { onExit?: () => void }) {
   const section = useRef<HTMLElement>(null)
   const reducedMotion = useMedia('(prefers-reduced-motion: reduce)')
   const mobile = useMedia('(max-width: 760px)')
-  const [webgl] = useState(supportsWebGL)
+  // Match the prerendered fallback, then activate WebGL after hydration.
+  const webgl = useSyncExternalStore<boolean | undefined>(subscribeSupport, supportsWebGL, () => undefined)
   const [staticMode, setStaticMode] = useState(false)
   const [failed, setFailed] = useState(false)
   const [progress, setProgress] = useState(0)
@@ -32,12 +37,26 @@ export default function ConstructionExperience({ onExit }: { onExit?: () => void
   const simple = reducedMotion || !webgl || staticMode || failed
   const index = stageAt(progress)
   const stage = constructionStages[index]
+  const Heading = onExit ? 'h2' : 'h1'
   const reportFailure = useCallback(() => setFailed(true), [])
   const ready = useCallback(() => setSceneLoaded(true), [])
 
   useEffect(() => {
     if (onExit && section.current) window.scrollTo({ top: section.current.offsetTop, behavior: 'instant' })
   }, [onExit])
+
+  useEffect(() => {
+    if (onExit || webgl === undefined || !window.location.hash || window.location.hash === '#top') return
+    // Browser hash scrolling can precede hydration and the WebGL/fallback layout.
+    const frame = requestAnimationFrame(() => {
+      const target = document.getElementById(window.location.hash.slice(1))
+      if (target) {
+        const header = document.querySelector('header')?.getBoundingClientRect().height ?? 100
+        window.scrollTo({ top: window.scrollY + target.getBoundingClientRect().top - header - 14, behavior: 'instant' })
+      }
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [webgl, reducedMotion, onExit])
 
   useEffect(() => {
     let frame = 0
@@ -63,7 +82,7 @@ export default function ConstructionExperience({ onExit }: { onExit?: () => void
     requestAnimationFrame(() => window.scrollTo({ top: section.current?.offsetTop ?? 0, behavior: 'instant' }))
   }
 
-  return <section ref={section} className={`construction-experience ${simple ? 'simple-experience' : ''}`} id="construction-story" aria-label="Interactive construction story">
+  return <section ref={section} className={`construction-experience ${simple ? 'simple-experience' : ''} ${onExit ? '' : 'construction-home'} ${webgl === undefined ? 'scene-pending' : ''}`} id={onExit ? 'construction-story' : 'top'} aria-label="Interactive construction story">
     <div className="construction-sticky">
       <div className="hero-meta"><span><i className="status-dot" />INDEPENDENT CONSTRUCTION SUPPORT</span><span>{business.serviceArea}</span></div>
       <div className="scene-stage" aria-label={simple ? 'Static architectural illustration' : 'Interactive 3D construction assembly'}>
@@ -73,12 +92,12 @@ export default function ConstructionExperience({ onExit }: { onExit?: () => void
       </div>
       <div className="hero-copy" key={simple ? 'static' : index}>
         <p className="eyebrow red"><span className="tiny-line" />{simple ? constructionStages[0].eyebrow : stage.eyebrow}</p>
-        <h2 className="construction-title">{(simple ? constructionStages[0].title : stage.title).split('\n').map((line, i) => <span key={i}>{line}</span>)}</h2>
+        <Heading className="construction-title" id={onExit ? undefined : 'home-title'}>{(simple ? constructionStages[0].title : stage.title).split('\n').map((line, i) => <span key={i}>{line}</span>)}</Heading>
         <p className="hero-description">{simple ? constructionStages[0].description : stage.description}</p>
         <a className="text-call" href={business.telephone}><span>Let’s talk about your project<strong>{business.phone}</strong></span><Arrow diagonal /></a>
       </div>
       <div className="hero-bottom">
-        <a className="scroll-cue" href="#work"><span className="scroll-circle"><Arrow /></span><span>BACK TO PORTFOLIO<small>View the actual project photographs.</small></span></a>
+        <a className="scroll-cue" href="#work"><span className="scroll-circle"><Arrow /></span><span>SEE THE REAL WORK<small>Explore the construction photographs.</small></span></a>
         <div className="scene-controls">{!simple && <button onClick={() => setAngle((a) => (a + 1) % 3)} aria-label="Rotate the 3D construction model to the next viewpoint">↻ <span>Rotate view</span></button>}{webgl && !reducedMotion && !failed && <button aria-pressed={staticMode} onClick={toggleStaticView}>{staticMode ? 'Enable 3D' : 'Static view'}</button>}</div>
         <span className="hero-experience"><strong>20<span>+</span></strong><span>YEARS OF PRACTICAL<br />LABOURING EXPERIENCE</span></span>
       </div>

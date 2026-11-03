@@ -8,9 +8,9 @@ export const business = {
   rate: 'Rates discussed by phone',
   experience: '20+',
   services: [
-    { number: '01', title: 'Framing & structure support', text: 'Hands-on support with steel framing, timber noggins, clips and battens, working to the project’s supplied details and instructions.', tags: 'STEEL FRAMING / TIMBER NOGGINS / SITE SUPPORT' },
-    { number: '02', title: 'Wrap, cladding & finishing', text: 'Practical assistance with building wrap, fibre-cement and traditional cladding, plasterboard, painting and the details that bring a job together.', tags: 'WRAP / CLADDING / PAINTING / FIT-OUT' },
-    { number: '03', title: 'Property & project support', text: 'Site preparation, material handling, doors and windows, and assistance with fascia, soffits and downpipes. A useful pair of hands across the job.', tags: 'PREPARATION / MATERIALS / GENERAL MAINTENANCE' },
+    { number: '01', title: 'Framing & structure support', text: 'Steel framing, timber noggins, clips and battens, working to supplied project instructions.', tags: 'STEEL FRAMING / TIMBER NOGGINS / SITE SUPPORT' },
+    { number: '02', title: 'Wrap, cladding & finishing', text: 'Hands-on assistance with wrap, cladding, plasterboard, painting and nonregulated fit-out details.', tags: 'WRAP / CLADDING / PAINTING / FIT-OUT' },
+    { number: '03', title: 'Property & project support', text: 'Site preparation, materials, general maintenance and door, window, fascia and soffit assistance.', tags: 'PREPARATION / MATERIALS / GENERAL MAINTENANCE' },
   ],
   training: [
     ['CPCWHS1001', 'Construction induction'],

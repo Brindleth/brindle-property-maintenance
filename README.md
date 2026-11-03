@@ -1,6 +1,6 @@
 # Brindle Property Maintenance
 
-A complete static Vite + React + TypeScript website led by the owner's actual construction photographs, with an optional Three.js / React Three Fiber construction study. No backend, database, forms, booking system, tracking, paid service, external font host or API key is required. All contact links use **0451 743 037** (`tel:+61451743037`).
+The existing Brindle website, refined with a full-screen interactive Three.js / React Three Fiber opening, a four-stage real-photo project viewer and clearly separated AI design inspiration. No backend, database, forms, booking system, tracking, paid service, external font host or API key is required. All contact links use **0451 743 037** (`tel:+61451743037`).
 
 Publication URL: [Brindle Property Maintenance](https://brindleth.github.io/brindle-property-maintenance/). Source: [Brindleth/brindle-property-maintenance](https://github.com/Brindleth/brindle-property-maintenance). See the validation record for deployment status.
 
@@ -20,42 +20,44 @@ npm.cmd run check
 npm.cmd run preview
 ```
 
-`check` runs TypeScript, ESLint, seven regression tests and the verified production build. `preview` serves `dist/` at `http://127.0.0.1:4173/` for local verification. `npm ci` reproduces the locked dependencies.
+`check` runs TypeScript, ESLint, eleven regression tests and the verified production build. `preview` serves `dist/` at `http://127.0.0.1:4173/` for local verification. `npm ci` reproduces the locked dependencies.
 
 ## Included experience
 
-- Actual project photography on the first screen, followed immediately by all six portfolio images. Direct Portfolio navigation, visible captions and a native zoom gallery. No content depends on reveal animations.
-- The portfolio and page copy are prerendered at build time into plain HTML. They remain readable before JavaScript starts or if it fails; hydration adds interactive controls. No runtime server is deployed.
-- An optional 3D study loads only after **Open interactive 3D study** is selected. It has six reversible scroll stages: ground tracks, steel frame, timber noggins, wrap and battens/clips, external cladding and final window trim. Keyboard-accessible stage buttons, mouse drag, Rotate view and Close study controls.
-- Mobile rendering uses fewer meshes, no shadow map, a capped pixel ratio and native vertical touch scrolling. Rendering happens on demand and rests when input stops.
-- Static view switches off 3D. Reduced-motion preferences and unavailable WebGL automatically use a local architectural vector fallback, shorten the construction story and retain contact links. A scene error or lost context also uses the fallback.
-- About, services, six authentic project photos, native modal gallery with next/previous, arrow keys, zoom and Escape, experience, supplied training records, rates and availability. Persistent mobile phone action, skip link and keyboard focus styles.
-- A separate photo-based patio proposal labelled **CONCEPT VISUALISATION — NOT CONSTRUCTED**, inspired by the owner's supplied design reference. Existing photo / Proposed concept / Compare controls, a keyboard-accessible comparison slider, five actual patio reference photographs and a full-image gallery. The existing patio and lighting are not presented as Brindle's work.
-- Local fonts, responsive metadata-free WebP photographs, lazy media and 3D, favicon, social card, metadata, robots.txt and optional Cloudflare security/cache headers.
+- The existing full-screen construction scene opens the site. Six reversible scroll stages, stage shortcuts, model rotation, static mode and persistent phone access retain the white/black/red identity. The real-work link jumps directly to the photographs.
+- One cinematic four-stage project viewer replaces the six-photo grid. Native draggable range control, arrows, horizontal pointer swipes, keyboard shortcuts and reduced-motion crossfades. Portrait originals remain fully visible against an ambient backdrop.
+- Photo mapping: 1000020847 early wrapped exterior with initial fixings; 1000020945 wrap/clips/battens; 1000020946 small-window perimeter detail before cladding; 1000020958 horizontal cladding around the large window with upper wrap still exposed. Different viewpoints are stated explicitly. The optional steel-framing/noggins photo is under Inside the frame.
+- One photo-based Perth patio visualisation, labelled **Concept Visualisation — Not Constructed**. No comparison or reference-photo gallery. Existing patio and lights are not claimed as Brindle work.
+- **Design Inspiration & Capabilities** contains three photorealistic AI examples: feature wall/concealed AV/low-voltage LED ideas, outdoor entertainment, and cladding/architectural finishes. Clear disclosure and per-image labels. No regulated installation service is advertised.
+- Build-time prerendered copy and photographs remain available before JavaScript. Client hydration starts the lazy WebGL renderer with a static fallback; reduced motion, missing WebGL and context loss retain the readable page. Local fonts, responsive images and on-demand rendering remain in place.
+- Shorter services copy, actual training records, rates by phone, copy-number control, responsive navigation and an accessible mobile call bar. Frontend only.
 
 ## Edit business details
 
 Edit `src/config/business.ts` for the phone, Melbourne service area, services, rate wording, availability and training. Rates deliberately say **Rates discussed by phone**; no unapproved hourly price is published. If changing service area, also update the SEO description in `index.html` and social card in `scripts/prepare-assets.mjs`.
 
-Gallery captions are in `src/data/portfolio.ts`. The photo-led opening is in `src/components/PhotoHome.tsx`; page order is in `src/App.tsx`; the optional study is in `src/components/BuildStudy.tsx`. Construction timing is in `src/lib/construction.ts`; geometry is in `src/components/ConstructionScene.tsx`. Base styles are in `src/styles.css` and `src/refinements.css`; the current portfolio layout and visibility rules are in `src/portfolio-first.css`.
+Stage mapping and truthful captions are in `src/data/projectStages.ts`. The viewer is in `src/components/Portfolio.tsx`; the opening is in `src/components/ConstructionExperience.tsx`; page order is in `src/App.tsx`. Construction timing is in `src/lib/construction.ts`; geometry is in `src/components/ConstructionScene.tsx`. The latest layout rules are in `src/stage-refinement.css` and `src/patio-concept.css`.
 
 The project role remains construction support using supplied materials and instructions. Do not add a home address, invented projects, testimonials, licences or certification claims.
 
-## Supplied photographs and original documents
+## Supplied photographs and generated assets
 
-All six genuine construction photographs are used. The five actual patio photographs appear only as existing-space references in the separately labelled concept section, as requested by the owner. One AI-edited proposal is based on the real patio; it is never included in the completed-work portfolio. Original JPGs, the full generated PNG and the legacy starter are preserved **locally**, excluded from Git publication and the deployment bundle. The site publishes 18 construction-photo WebPs plus 18 separately stored concept/reference WebPs in `public/images/concept/`. These responsive derivatives contain no source EXIF metadata. A fresh clone builds with the committed derivatives without source JPGs or image-generation access.
+All six construction-photo originals and their 18 metadata-free derivatives remain preserved. Four verified views are used in the main stage viewer; the steel-framing view is optional and also appears with training. The alternate small-window photograph remains available locally without adding another main stage.
 
-To regenerate after changing local originals:
+The five original patio references remain local, separate from completed work. Only the single generated patio proposal is published at three responsive widths. Three new inspiration images have nine responsive WebP derivatives. Generated PNG masters and original JPGs are Git-ignored and excluded from deployment; committed derivatives make a fresh clone buildable without generation tools.
+
+To regenerate assets when the preserved source files are available:
 
 ```powershell
 npm.cmd run assets
 npm.cmd run assets:concept
+npm.cmd run assets:inspiration
 npm.cmd run check
 ```
 
-`assets:concept` requires the locally preserved patio JPGs and `references/patio-concept-only/generated/patio-enclosure-concept.png`. The exact generation prompt, source roles and saved asset paths are recorded in `docs/CONCEPT_VISUALISATION.md`. The built-in image tool was used during authoring; the published website calls no image service.
+Exact built-in prompts and source/output paths: `docs/CONCEPT_VISUALISATION.md` (patio) and `docs/INSPIRATION_ASSETS.md` (capabilities). No image-generation service runs on the published site.
 
-The four original brief documents remain unchanged. The original handoff README is preserved in `docs/ORIGINAL_HANDOFF.md`. `docs/FUTURE_SCOPE.md` records the boundary around future features.
+The four original brief documents remain unchanged. The original handoff README is preserved in `docs/ORIGINAL_HANDOFF.md`; `docs/FUTURE_SCOPE.md` preserves future plans without adding a backend.
 
 ## Publish free: GitHub Pages
 

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import Header from './components/Header'
-import PhotoHome from './components/PhotoHome'
-import BuildStudy from './components/BuildStudy'
+import ConstructionExperience from './components/ConstructionExperience'
 import Portfolio from './components/Portfolio'
 import PatioConcept from './components/PatioConcept'
+import Capabilities from './components/Capabilities'
 import { Arrow, Brand, Phone } from './components/Icons'
 import { business } from './config/business'
 import { asset } from './data/portfolio'
@@ -19,22 +19,22 @@ export default function App() {
     <a className="skip-link" href="#work">Skip to portfolio</a>
     <Header />
     <main>
-      <PhotoHome />
+      <ConstructionExperience />
       <Portfolio />
       <section className="about-section section-pad" id="about">
         <div className="section-topline reveal"><span className="eyebrow">02 / SERVICES &amp; APPROACH</span><span className="eyebrow subtle">INDEPENDENT. HANDS-ON. BRINDLE.</span></div>
-        <div className="about-intro reveal"><h2>Experience you can<br /><span className="muted">build on.</span></h2><div><p className="lead">Good work starts with turning up, understanding the job and caring about the details.</p><p>Brindle brings over 20 years of practical labouring experience, including work alongside a carpenter father. Independent construction labour and project support, with a grounded understanding of how work comes together on site.</p></div></div>
+        <div className="about-intro reveal"><h2>Experience you can<br /><span className="muted">build on.</span></h2><div><p className="lead">Over 20 years on the tools. Practical support and care for the details.</p><p>Independent construction labour and property maintenance, with experience working alongside a carpenter father.</p></div></div>
         <div className="services">{business.services.map(service => <article className="service-row reveal" key={service.number}><span className="service-number">{service.number}</span><h3>{service.title}</h3><div><p>{service.text}</p><span className="service-tags">{service.tags}</span></div><Arrow diagonal /></article>)}</div>
         <p className="scope-note reveal">Project support within the agreed scope. Structural, fire-rated, electrical and other regulated work requires the appropriate qualified or registered trades and project oversight.</p>
       </section>
-      <BuildStudy />
       <PatioConcept />
+      <Capabilities />
       <section className="experience-section section-pad" id="experience">
-        <div className="section-topline reveal"><span className="eyebrow">04 / EXPERIENCE &amp; TRAINING</span><span className="eyebrow subtle">PRACTICAL KNOWLEDGE. ON-SITE AWARENESS.</span></div>
+        <div className="section-topline reveal"><span className="eyebrow">05 / EXPERIENCE &amp; TRAINING</span><span className="eyebrow subtle">PRACTICAL KNOWLEDGE. ON-SITE AWARENESS.</span></div>
         <div className="experience-layout"><div className="experience-image reveal"><img src={asset('images/1000020943-960.webp')} alt="Owner-supplied photograph showing steel studs and timber noggins from Brindle’s genuine construction support project" width="1200" height="1600" loading="lazy" decoding="async" /><span className="image-label">THE KNOW-HOW BEHIND THE WORK.</span></div><div className="experience-copy reveal"><h2>Built through<br /><span className="muted">doing.</span></h2><p>Two decades of practical experience, backed by construction and workplace safety training.</p><dl className="training-list">{business.training.map(([code, text]) => <div key={code}><dt>{text}</dt><dd>{code}</dd></div>)}</dl><p className="training-note">Owner-supplied training records. Training does not confer a trade licence or independent authority to certify regulated work.</p><details><summary>Engineering education &amp; future ideas<span>+</span></summary><p>Electrical/electronic engineering education informs an interest in outdoor AV, LED and electronics concepts. Electrical licensing is not claimed. Any regulated installation would require an appropriately licensed trade.</p></details></div></div>
       </section>
       <section className="contact-section section-pad" id="contact">
-        <div className="section-topline reveal"><span className="eyebrow">05 / LET’S GET TO WORK</span><span className="eyebrow"><i className="status-dot" />{business.serviceArea}</span></div>
+        <div className="section-topline reveal"><span className="eyebrow">06 / LET’S GET TO WORK</span><span className="eyebrow"><i className="status-dot" />{business.serviceArea}</span></div>
         <div className="contact-heading reveal"><h2>Your next project.<br /><span>A good conversation.</span></h2><Arrow diagonal /></div>
         <div className="contact-bottom reveal"><div><p>Tell me what you’re working on.<br />We’ll talk through the scope, timing and fit.</p><a className="contact-number" href={business.telephone} aria-label={`Call Brindle on ${business.phone}`}>{business.phone}<Arrow diagonal /></a><div className="copy-row"><button onClick={copyNumber}>{copied ? 'Number copied ✓' : 'Copy phone number'}</button><span role="status">{copyFailed ? `Please select and copy ${business.phone}.` : copied ? 'Ready to paste.' : ''}</span></div></div><div className="availability"><span className="eyebrow">RATES &amp; AVAILABILITY</span><h3>{business.rate}</h3><p>{business.availability} Independent contracting arrangements are agreed for each scope. Employment or labour-hire arrangements are discussed separately.</p><a href={business.telephone}>Call {business.phone}<Arrow /></a></div></div>
       </section>
