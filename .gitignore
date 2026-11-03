@@ -1,0 +1,13 @@
+node_modules/
+dist/
+test-results/
+*.local
+.env*
+!.env.example
+*.tsbuildinfo
+.DS_Store
+deployment/*.zip
+# Retain the supplied originals locally. Publish only metadata-free derivatives.
+references/
+public/portfolio/completed/*.jpg
+legacy-starter/
