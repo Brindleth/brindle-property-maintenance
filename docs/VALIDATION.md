@@ -19,7 +19,9 @@ Verified for this revision:
 - Browser checks at 1440 x 900, 375 x 812 and 320 x 568. The first actual project photograph is loaded at the top of the phone page; no horizontal document overflow. All six gallery figures are visible by default; all six lightbox photographs were opened, with Escape and focus restoration checked.
 - Production hydration and the optional 3D study were exercised in-browser with no warning or error from the tested production origin.
 
-Publication of this revision is being verified. The earlier release record follows for history and is superseded by this revision.
+Published and verified at https://brindleth.github.io/brindle-property-maintenance/ (portfolio: `#work`). Application commit `b5c1c597b41ba430d2f2490bbcf4aeb384b85506`; [GitHub Actions run 41623268608](https://github.com/Brindleth/brindle-property-maintenance/actions/runs/41623268608) completed successfully. The live homepage returned 200, contains all six portfolio figures in static HTML, and all 29 checked resource URLs returned 200. A fresh live browser check confirmed all six gallery images loaded with opacity 1, no initial canvas, and no warning or error after reload. Revised screenshots are saved locally in `test-results/brindle-revised-home.jpg` and `test-results/brindle-revised-portfolio.jpg`.
+
+The original in-app browser tab could not be refreshed through its browser controls (a browser focus-command timeout). A fresh diagnostic tab displayed the revised live site successfully and was retained as the user-facing result. The earlier release record follows for history and is superseded by this revision.
 
 ---
 # Release validation — 3 November 2026
