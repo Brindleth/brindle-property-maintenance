@@ -15,7 +15,7 @@
   .construction-sticky{height:100svh;min-height:0}
   .hero-meta{top:102px;font-size:5.5px}
   .hero-copy{top:132px}
-  .hero-copy h1{font-size:clamp(36px,10.5vw,50px)}
+  .hero-copy .construction-title{font-size:clamp(36px,10.5vw,50px)}
   .hero-description{font-size:10px;max-width:230px;line-height:1.65;margin-top:12px}
   .scene-stage{top:39%;height:40%}
   .model-note{bottom:4%;font-size:5px}
@@ -27,7 +27,7 @@
 }
 @media(max-width:760px) and (max-height:620px){
   .hero-copy{top:128px}
-  .hero-copy h1{font-size:37px}
+  .hero-copy .construction-title{font-size:37px}
   .hero-copy .eyebrow{font-size:5.5px;margin-bottom:10px}
   .hero-description{max-width:190px;font-size:9px;line-height:1.6;margin-top:12px}
   .scene-stage{top:38%;height:39%;right:-37%;width:126%}
@@ -36,3 +36,4 @@
   .hero-bottom{bottom:133px}
   .simple-experience .scene-stage{top:38%;height:42%}
 }
+

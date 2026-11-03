@@ -12,7 +12,7 @@
     "lint": "eslint .",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "assets": "node scripts/prepare-assets.mjs",
-    "build": "npm run typecheck && vite build && node scripts/verify-build.mjs",
+    "build": "npm run typecheck && vite build && node scripts/prerender.mjs && node scripts/verify-build.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "check": "npm run typecheck && npm run lint && npm test && npm run build"
   },
@@ -22,14 +22,14 @@
     "@react-three/fiber": "^9.8.2",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "three": "^0.187.0"
+    "three": "0.182.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^22.19.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
-    "@types/three": "^0.183.0",
+    "@types/three": "0.182.0",
     "@vitejs/plugin-react": "^6.2.1",
     "eslint": "^10.14.0",
     "eslint-plugin-react-hooks": "^7.0.1",

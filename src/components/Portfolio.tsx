@@ -5,18 +5,17 @@ import { Arrow } from './Icons'
 export default function Portfolio() {
   const [selected, setSelected] = useState<number | null>(null)
   return <section id="work" className="portfolio-section section-pad">
-    <div className="section-topline reveal"><span className="eyebrow">02 / SELECTED WORK</span><span className="eyebrow subtle">REAL WORK. REAL PHOTOGRAPHS.</span></div>
-    <div className="portfolio-heading reveal"><h2>From the inside.<br /><span className="muted">To the outside.</span></h2><div><p>Residential Framing &amp; External Cladding — Construction Support</p><span>ONE GENUINE PROJECT / SIX PERSPECTIVES</span></div></div>
-    <div className="portfolio-editorial reveal"><p>Hands-on involvement in a fire-rated residential construction project: steel framing, timber noggins, wrap, clips, battens, cladding and window surrounds.</p><p>Work carried out using customer-supplied materials and instructions. Brindle’s role was construction support; design, certification and project management are not claimed.</p></div>
-    <div className="photo-grid">{portfolio.map((photo, i) => <figure className={`project-photo photo-${i} reveal`} key={photo.id}>
+    <div className="section-topline"><span className="eyebrow">01 / MY PORTFOLIO</span><span className="eyebrow subtle">ONE PROJECT. SIX GENUINE PHOTOGRAPHS.</span></div>
+    <div className="portfolio-heading"><div><span className="project-type">RESIDENTIAL CONSTRUCTION SUPPORT</span><h2>Framing. Cladding.<br /><span className="muted">The details in between.</span></h2></div><p>Steel framing, timber noggins, wrap, clips, battens and external cladding. These are photographs of actual hands-on work on a residential project.</p></div>
+    <div className="photo-grid">{portfolio.map((photo, i) => <figure className={`project-photo photo-${i}`} key={photo.id}>
       <button className="photo-button" onClick={() => setSelected(i)} aria-label={`Open photograph ${i + 1} of 6: ${photo.category.toLowerCase()}`}>
-        <img src={asset(`images/${photo.id}-960.webp`)} srcSet={`${asset(`images/${photo.id}-480.webp`)} 480w, ${asset(`images/${photo.id}-960.webp`)} 960w, ${asset(`images/${photo.id}-1600.webp`)} 1600w`} sizes={i === 0 ? '(max-width: 760px) 100vw, 60vw' : '(max-width: 760px) 100vw, 40vw'} alt={photo.alt} loading="lazy" decoding="async" width="1200" height="1600" />
+        <img src={asset(`images/${photo.id}-960.webp`)} srcSet={`${asset(`images/${photo.id}-480.webp`)} 480w, ${asset(`images/${photo.id}-960.webp`)} 960w, ${asset(`images/${photo.id}-1600.webp`)} 1600w`} sizes="(max-width: 599px) 100vw, (max-width: 1000px) 50vw, 33vw" alt={photo.alt} loading={i < 3 ? 'eager' : 'lazy'} decoding="async" width="1200" height="1600" />
         <span className="photo-overlay"><span>VIEW PHOTOGRAPH</span><span className="photo-plus">+</span></span>
         <span className="photo-index">0{i + 1} / 06</span>
       </button>
-      <figcaption><span>{photo.category}</span><h3>{photo.title}</h3></figcaption>
+      <figcaption><span>{photo.category}</span><h3>{photo.title}</h3><p>{photo.caption}</p></figcaption>
     </figure>)}</div>
-    <div className="portfolio-footnote"><span className="status-dot" /><p>Every photograph above was supplied by the owner, with customer permission for portfolio use.</p></div>
+    <div className="portfolio-footnote"><div><p className="eyebrow">RESIDENTIAL FRAMING &amp; EXTERNAL CLADDING — CONSTRUCTION SUPPORT</p><p>Hands-on work on a fire-rated residential building using customer-supplied materials and instructions. Design, certification and project management are not claimed.</p></div><p>All six photographs supplied by the owner, with customer permission for portfolio use.</p></div>
     {selected !== null && <Lightbox initial={selected} onClose={() => setSelected(null)} />}
   </section>
 }

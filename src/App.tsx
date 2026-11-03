@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Header from './components/Header'
-import ConstructionExperience from './components/ConstructionExperience'
+import PhotoHome from './components/PhotoHome'
+import BuildStudy from './components/BuildStudy'
 import Portfolio from './components/Portfolio'
 import PatioConcept from './components/PatioConcept'
 import { Arrow, Brand, Phone } from './components/Icons'
@@ -10,29 +11,23 @@ import { asset } from './data/portfolio'
 export default function App() {
   const [copied, setCopied] = useState(false)
   const [copyFailed, setCopyFailed] = useState(false)
-  useEffect(() => {
-    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target) } }), { threshold: 0.08 })
-    document.querySelectorAll('.reveal').forEach(el => { el.classList.add('will-reveal'); observer.observe(el) })
-    return () => observer.disconnect()
-  }, [])
   useEffect(() => { if (copied) { const timer = window.setTimeout(() => setCopied(false), 3000); return () => clearTimeout(timer) } }, [copied])
   async function copyNumber() {
     try { await navigator.clipboard.writeText(business.phone); setCopied(true); setCopyFailed(false) } catch { setCopyFailed(true) }
   }
   return <>
-    <a className="skip-link" href="#about">Skip construction story</a>
+    <a className="skip-link" href="#work">Skip to portfolio</a>
     <Header />
     <main>
-      <ConstructionExperience />
+      <PhotoHome />
+      <Portfolio />
       <section className="about-section section-pad" id="about">
-        <div className="section-topline reveal"><span className="eyebrow">01 / THE APPROACH</span><span className="eyebrow subtle">INDEPENDENT. HANDS-ON. BRINDLE.</span></div>
+        <div className="section-topline reveal"><span className="eyebrow">02 / SERVICES &amp; APPROACH</span><span className="eyebrow subtle">INDEPENDENT. HANDS-ON. BRINDLE.</span></div>
         <div className="about-intro reveal"><h2>Experience you can<br /><span className="muted">build on.</span></h2><div><p className="lead">Good work starts with turning up, understanding the job and caring about the details.</p><p>Brindle brings over 20 years of practical labouring experience, including work alongside a carpenter father. Independent construction labour and project support, with a grounded understanding of how work comes together on site.</p></div></div>
         <div className="services">{business.services.map(service => <article className="service-row reveal" key={service.number}><span className="service-number">{service.number}</span><h3>{service.title}</h3><div><p>{service.text}</p><span className="service-tags">{service.tags}</span></div><Arrow diagonal /></article>)}</div>
         <p className="scope-note reveal">Project support within the agreed scope. Structural, fire-rated, electrical and other regulated work requires the appropriate qualified or registered trades and project oversight.</p>
       </section>
-      <Portfolio />
-      <div className="statement-section"><p className="eyebrow">THE BRINDLE WAY</p><p className="statement reveal">Show up.<br />Get stuck in.<br /><span>Care about the finish.</span></p><span className="statement-mark" aria-hidden="true">b.</span></div>
+      <BuildStudy />
       <PatioConcept />
       <section className="experience-section section-pad" id="experience">
         <div className="section-topline reveal"><span className="eyebrow">04 / EXPERIENCE &amp; TRAINING</span><span className="eyebrow subtle">PRACTICAL KNOWLEDGE. ON-SITE AWARENESS.</span></div>

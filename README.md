@@ -1,6 +1,6 @@
 # Brindle Property Maintenance
 
-A complete static Vite + React + TypeScript website with a genuine Three.js / React Three Fiber construction experience. No backend, database, forms, booking system, tracking, paid service, external font host or API key is required. All contact links use **0451 743 037** (`tel:+61451743037`).
+A complete static Vite + React + TypeScript website led by the owner's actual construction photographs, with an optional Three.js / React Three Fiber construction study. No backend, database, forms, booking system, tracking, paid service, external font host or API key is required. All contact links use **0451 743 037** (`tel:+61451743037`).
 
 Publication URL: [Brindle Property Maintenance](https://brindleth.github.io/brindle-property-maintenance/). Source: [Brindleth/brindle-property-maintenance](https://github.com/Brindleth/brindle-property-maintenance). See the validation record for deployment status.
 
@@ -24,7 +24,9 @@ npm.cmd run preview
 
 ## Included experience
 
-- Six reversible scroll stages: ground tracks, steel frame, timber noggins, wrap and battens/clips, external cladding and final window trim. Keyboard-accessible stage buttons, mouse drag and a Rotate view control.
+- Actual project photography on the first screen, followed immediately by all six portfolio images. Direct Portfolio navigation, visible captions and a native zoom gallery. No content depends on reveal animations.
+- The portfolio and page copy are prerendered at build time into plain HTML. They remain readable before JavaScript starts or if it fails; hydration adds interactive controls. No runtime server is deployed.
+- An optional 3D study loads only after **Open interactive 3D study** is selected. It has six reversible scroll stages: ground tracks, steel frame, timber noggins, wrap and battens/clips, external cladding and final window trim. Keyboard-accessible stage buttons, mouse drag, Rotate view and Close study controls.
 - Mobile rendering uses fewer meshes, no shadow map, a capped pixel ratio and native vertical touch scrolling. Rendering happens on demand and rests when input stops.
 - Static view switches off 3D. Reduced-motion preferences and unavailable WebGL automatically use a local architectural vector fallback, shorten the construction story and retain contact links. A scene error or lost context also uses the fallback.
 - About, services, six authentic project photos, native modal gallery with next/previous, arrow keys, zoom and Escape, experience, supplied training records, rates and availability. Persistent mobile phone action, skip link and keyboard focus styles.
@@ -35,7 +37,7 @@ npm.cmd run preview
 
 Edit `src/config/business.ts` for the phone, Melbourne service area, services, rate wording, availability and training. Rates deliberately say **Rates discussed by phone**; no unapproved hourly price is published. If changing service area, also update the SEO description in `index.html` and social card in `scripts/prepare-assets.mjs`.
 
-Gallery captions are in `src/data/portfolio.ts`. Main content is in `src/App.tsx`. Construction timing is in `src/lib/construction.ts`; geometry is in `src/components/ConstructionScene.tsx`. Styles are in `src/styles.css` and `src/refinements.css`.
+Gallery captions are in `src/data/portfolio.ts`. The photo-led opening is in `src/components/PhotoHome.tsx`; page order is in `src/App.tsx`; the optional study is in `src/components/BuildStudy.tsx`. Construction timing is in `src/lib/construction.ts`; geometry is in `src/components/ConstructionScene.tsx`. Base styles are in `src/styles.css` and `src/refinements.css`; the current portfolio layout and visibility rules are in `src/portfolio-first.css`.
 
 The project role remains construction support using supplied materials and instructions. Do not add a home address, invented projects, testimonials, licences or certification claims.
 

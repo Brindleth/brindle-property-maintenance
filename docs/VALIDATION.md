@@ -1,3 +1,27 @@
+# Portfolio-first revision — 3 November 2026
+
+This revision responds to the owner's report that the site had errors and did not show the portfolio clearly. The previous layout placed the real photographs after a 580svh construction sequence and a services section. The first version's successful build and asset requests did not establish that the portfolio was sufficiently visible or usable.
+
+Changes:
+
+- Actual supplied cladding photograph on the first screen, including on 375px and 320px phone viewports.
+- Full six-photo portfolio immediately after the opening, before services. Clear Portfolio navigation, immediate anchor jumps, a three-column desktop gallery and one/two-column responsive layouts.
+- Removed the reveal observer and hidden-content dependency. Every photograph and text section is visible by default.
+- Build-time prerendering includes the real images, content and telephone links in the delivered HTML. No runtime server is introduced. JavaScript hydrates the static page to add the lightbox and optional interactions.
+- The construction study loads only after an explicit Open interactive 3D study action. Closing it removes the WebGL canvas and restores focus. It retains the reversible stages, fallback and phone access.
+- Pinned compatible Three.js 0.182.0 and matching types, removing the Three.Clock warning observed with React Three Fiber and Three.js 0.187.
+
+Verified for this revision:
+
+- TypeScript, ESLint, six regression tests, production build and audit (zero vulnerabilities).
+- Static build validation confirms one H1, all six portfolio figures in HTML, portfolio before services, no will-reveal classes, no initial canvas, correct local assets and exclusion of original/reference photos.
+- Root-relative local preview and the exact /brindle-property-maintenance/ deployment subpath both return 200 with the six prerendered figures and correct image URLs.
+- Browser checks at 1440 x 900, 375 x 812 and 320 x 568. The first actual project photograph is loaded at the top of the phone page; no horizontal document overflow. All six gallery figures are visible by default; all six lightbox photographs were opened, with Escape and focus restoration checked.
+- Production hydration and the optional 3D study were exercised in-browser with no warning or error from the tested production origin.
+
+Publication of this revision is being verified. The earlier release record follows for history and is superseded by this revision.
+
+---
 # Release validation — 3 November 2026
 
 ## Verified locally
@@ -32,3 +56,4 @@ Release application commit: `ca7491f2ac1a4a206df507befcee2b0134c1fabc`. GitHub A
 The public HTTPS page returned **200**. All **25 checked asset URLs** returned **200**, including all 18 photograph derivatives, entrypoint scripts/style, favicon, robots and the social image. The live site was opened in-browser and the 3D assembly verified. The final verification screenshot is saved locally at `test-results/brindle-live-desktop.jpg` (excluded from Git). No production application runtime error was observed; earlier development-server HMR connection messages are unrelated to the deployed static site.
 
 No remaining publishing step or paid service is required. Push future changes to `main` to rerun the deployment workflow. Cloudflare Pages remains an optional free alternative; exact steps are in the README.
+
