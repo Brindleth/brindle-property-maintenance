@@ -20,7 +20,7 @@ npm.cmd run check
 npm.cmd run preview
 ```
 
-`check` runs TypeScript, ESLint, six regression tests and the verified production build. `preview` serves `dist/` at `http://127.0.0.1:4173/` for local verification. `npm ci` reproduces the locked dependencies.
+`check` runs TypeScript, ESLint, seven regression tests and the verified production build. `preview` serves `dist/` at `http://127.0.0.1:4173/` for local verification. `npm ci` reproduces the locked dependencies.
 
 ## Included experience
 
@@ -30,7 +30,7 @@ npm.cmd run preview
 - Mobile rendering uses fewer meshes, no shadow map, a capped pixel ratio and native vertical touch scrolling. Rendering happens on demand and rests when input stops.
 - Static view switches off 3D. Reduced-motion preferences and unavailable WebGL automatically use a local architectural vector fallback, shorten the construction story and retain contact links. A scene error or lost context also uses the fallback.
 - About, services, six authentic project photos, native modal gallery with next/previous, arrow keys, zoom and Escape, experience, supplied training records, rates and availability. Persistent mobile phone action, skip link and keyboard focus styles.
-- A separate patio diagram labelled **CONCEPT VISUALISATION — NOT CONSTRUCTED**, with Structure / Finish controls. The existing patio and lighting are not presented as Brindle's work.
+- A separate photo-based patio proposal labelled **CONCEPT VISUALISATION — NOT CONSTRUCTED**, inspired by the owner's supplied design reference. Existing photo / Proposed concept / Compare controls, a keyboard-accessible comparison slider, five actual patio reference photographs and a full-image gallery. The existing patio and lighting are not presented as Brindle's work.
 - Local fonts, responsive metadata-free WebP photographs, lazy media and 3D, favicon, social card, metadata, robots.txt and optional Cloudflare security/cache headers.
 
 ## Edit business details
@@ -43,14 +43,17 @@ The project role remains construction support using supplied materials and instr
 
 ## Supplied photographs and original documents
 
-All six genuine construction photographs are used. All five patio photographs remain reference-only. Original JPGs, patio references and the legacy starter are preserved **locally**, excluded from Git publication and excluded from the deployment bundle. Only 18 metadata-free responsive WebP derivatives go online. A fresh clone builds with the committed derivatives without source JPGs.
+All six genuine construction photographs are used. The five actual patio photographs appear only as existing-space references in the separately labelled concept section, as requested by the owner. One AI-edited proposal is based on the real patio; it is never included in the completed-work portfolio. Original JPGs, the full generated PNG and the legacy starter are preserved **locally**, excluded from Git publication and the deployment bundle. The site publishes 18 construction-photo WebPs plus 18 separately stored concept/reference WebPs in `public/images/concept/`. These responsive derivatives contain no source EXIF metadata. A fresh clone builds with the committed derivatives without source JPGs or image-generation access.
 
 To regenerate after changing local originals:
 
 ```powershell
 npm.cmd run assets
+npm.cmd run assets:concept
 npm.cmd run check
 ```
+
+`assets:concept` requires the locally preserved patio JPGs and `references/patio-concept-only/generated/patio-enclosure-concept.png`. The exact generation prompt, source roles and saved asset paths are recorded in `docs/CONCEPT_VISUALISATION.md`. The built-in image tool was used during authoring; the published website calls no image service.
 
 The four original brief documents remain unchanged. The original handoff README is preserved in `docs/ORIGINAL_HANDOFF.md`. `docs/FUTURE_SCOPE.md` records the boundary around future features.
 

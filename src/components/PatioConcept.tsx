@@ -1,34 +1,71 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Arrow } from './Icons'
 import { business } from '../config/business'
+import { asset } from '../data/portfolio'
+import { patioImages, patioSourceIndex } from '../data/patio'
+
+type View = 'existing' | 'proposed' | 'compare'
+
+function sources(name: string) {
+  return [480, 800, 1080].map(width => `${asset(`images/concept/${name}-${width}.webp`)} ${width}w`).join(', ')
+}
 
 export default function PatioConcept() {
-  const [view, setView] = useState<'structure' | 'finish'>('finish')
-  return <section className="concept-section section-pad" id="concept">
-    <div className="section-topline reveal"><span className="eyebrow">03 / THE POSSIBILITIES</span><span className="concept-badge">UNBUILT CONCEPT</span></div>
-    <div className="concept-layout">
-      <div className="concept-copy reveal"><h2>A little vision.<br /><span className="muted">A new perspective.</span></h2><p className="lead">Proposed Perth Patio Enclosure<br />— Concept Only</p><p>An exploration of how stud walls, traditional cladding and a considered feature wall could give an existing patio a different feel.</p><p>Optional outdoor entertainment and low-voltage lighting ideas could be explored with appropriate qualified trades. This proposal has not been constructed.</p><a className="text-call" href={business.telephone}><span>Have a possibility in mind?<strong>{business.phone}</strong></span><Arrow diagonal /></a></div>
-      <div className="concept-drawing reveal">
-        <div className="drawing-toolbar"><span className="eyebrow">PATIO / SPATIAL STUDY 01</span><div role="group" aria-label="Patio concept view"><button onClick={() => setView('structure')} aria-pressed={view === 'structure'}>Structure</button><button onClick={() => setView('finish')} aria-pressed={view === 'finish'}>Finish</button></div></div>
-        <svg viewBox="0 0 720 550" role="img" aria-label={`Unbuilt patio enclosure concept, ${view === 'finish' ? 'cladded finish' : 'exposed stud structure'} architectural diagram`}>
-          <defs><pattern id="patio-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0v32" fill="none" stroke="#d7d5ce" strokeWidth=".6" /></pattern><pattern id="patio-cladding" width="12" height="18" patternUnits="userSpaceOnUse"><rect width="12" height="18" fill="#dcd9ce"/><path d="M0 17.5h12" stroke="#b1b1a5" strokeWidth="1"/></pattern></defs>
-          <rect width="720" height="550" fill="url(#patio-grid)" />
-          <g stroke="#545b52" strokeWidth="1.5" strokeLinejoin="round">
-            <path d="m105 365 292 123 226-137-292-122Z" fill="#d8d4ca" />
-            <path d="m105 365 292 123v10L105 375Z" fill="#bbb7ad" /><path d="m397 488 226-137v10L397 498Z" fill="#aaa99e" />
-            <path d="M108 365V177L329 47v184M329 47l292 124v180M108 177l291 125 222-131M399 302v186" fill="none" strokeWidth="6" />
-            <path d="m108 177 291 125 222-131-292-124Z" fill="#eceae4" fillOpacity=".76" />
-            {[0, 1, 2, 3, 4, 5].map(i => <path key={i} d={`m${140 + i * 42} ${158 - i * 24.5} 291 125`} stroke="#8e958a" strokeWidth="2" />)}
-            <g stroke="#8f8773" strokeWidth="5"><path d="M329 231V66m49 186V87m49 186V108m49 186V129m49 186V150m49 186V171M329 143l292 124" fill="none" /></g>
-            {view === 'finish' && <><path d="M329 231V66l292 124v161Z" fill="url(#patio-cladding)"/><path d="m436 183 116 49v93l-116-49Z" fill="#e6e2d7" stroke="#cb3028" strokeWidth="3"/><path d="m451 208 85 36v55l-85-36Z" fill="#3d4840" strokeWidth="2"/><path d="m343 219 65 28v81l-65-27Z" fill="#a1a48a" stroke="#79846e"/><path d="m350 225 51 22v68l-51-22Z" fill="#878d73" stroke="none"/></>}
-            <path d="m485 390 50 21 38-23-50-21Z" fill="#8d977f" /><path d="m492 391 2 25m34-10-1 25m38-42 1 24" fill="none" strokeWidth="3" />
-            <path d="m171 363 91 38 44-26-91-38Z" fill="#aaa494" /><path d="m171 363 1-38 91 38-1 38m1-38 43-26v38" fill="#c6c0b0" />
-          </g>
-          <g stroke="#bd312b" strokeWidth="1" fill="none"><path d="m108 403 291 124m-291-132v16m291 108v16M647 351l-1-176m-7 0h14m-14 176h14" /></g>
-          <g fontFamily="monospace" fontSize="10" fill="#757b71"><text x="124" y="458">INDICATIVE GEOMETRY / NO SITE DIMENSIONS</text><text x="477" y="77">EXISTING ROOF FORM</text><path d="m515 85-70 55" stroke="#8f9588"/><text x="503" y="449">OPEN TO PATIO</text></g>
-        </svg>
-        <div className="drawing-caption"><span className="red">CONCEPT VISUALISATION — NOT CONSTRUCTED</span><p>Illustrative design study based on supplied patio references. Existing patio and lighting are not Brindle’s completed work. Layout, details and approvals would need site-specific review.</p></div>
+  const [view, setView] = useState<View>('proposed')
+  const [reveal, setReveal] = useState(50)
+  const [selected, setSelected] = useState<number | null>(null)
+  const proposed = patioImages[0]
+  const existing = patioImages[patioSourceIndex]
+  const modes = [['existing', 'Existing photo'], ['proposed', 'Proposed concept'], ['compare', 'Compare']] as const
+  return <section className="patio-section section-pad" id="concept" aria-labelledby="patio-title">
+    <div className="section-topline"><span className="eyebrow">03 / A VISION FOR THE PATIO</span><span className="patio-badge">UNBUILT CONCEPT</span></div>
+    <div className="patio-hero">
+      <div className="patio-copy">
+        <p className="eyebrow">PROPOSED PERTH PATIO ENCLOSURE — CONCEPT ONLY</p>
+        <h2 id="patio-title">Enclosed patio.<br /><span>Outdoor living.</span></h2>
+        <p className="patio-intro">A new possibility for the real space. Pale horizontal cladding, a charcoal feature wall and a warm outdoor entertainment setting.</p>
+        <p>This photo-based visualisation uses the supplied patio as its starting point: the existing roof, posts, concrete slab and dining area.</p>
+        <div className="patio-materials"><span>STUD WALLS &amp; CLADDING</span><span>FEATURE WALL</span><span>AV &amp; LIGHTING IDEAS</span></div>
+        <a className="text-call" href={business.telephone}><span>Talk through a concept<strong>{business.phone}</strong></span><Arrow diagonal /></a>
+        <p className="patio-truth">CONCEPT VISUALISATION — NOT CONSTRUCTED</p>
+        <p className="patio-existing-note">Existing patio and lighting are not Brindle’s completed work. New walls, finishes, AV and accent lighting shown in the concept are proposed only.</p>
       </div>
+      <figure className="patio-viewer">
+        <div className="patio-view-controls" role="group" aria-label="Patio photo and concept views">{modes.map(([mode, label]) => <button key={mode} aria-pressed={view === mode} onClick={() => setView(mode)}>{label}</button>)}</div>
+        <div className={`patio-image-stage patio-view-${view}`}>
+          {view !== 'proposed' && <img className="patio-source-image" src={asset(`images/concept/${existing.name}-800.webp`)} srcSet={sources(existing.name)} sizes="(max-width: 760px) 100vw, 55vw" alt={existing.alt} width="1080" height="1440" loading="lazy" />}
+          {view !== 'existing' && <img className="patio-proposed-image" src={asset(`images/concept/${proposed.name}-800.webp`)} srcSet={sources(proposed.name)} sizes="(max-width: 760px) 100vw, 55vw" alt={proposed.alt} width="1080" height="1440" loading="lazy" style={view === 'compare' ? { clipPath: `inset(0 0 0 ${100 - reveal}%)` } : undefined} />}
+          {view === 'compare' && <div className="patio-divider" style={{ left: `${100 - reveal}%` }} aria-hidden="true"><span>↔</span></div>}
+          <span className="patio-image-label">{view === 'existing' ? 'EXISTING PATIO — REFERENCE PHOTO' : view === 'compare' ? 'EXISTING PHOTO / AI CONCEPT' : 'AI CONCEPT — NOT CONSTRUCTED'}</span>
+          <button className="patio-enlarge" onClick={() => setSelected(view === 'existing' ? patioSourceIndex : 0)} aria-label={view === 'existing' ? 'Enlarge the existing patio photograph' : 'Enlarge the proposed patio concept'}>View full image<Arrow diagonal /></button>
+        </div>
+        {view === 'compare' && <div className="patio-slider"><div><span>EXISTING PHOTO</span><span>PROPOSED CONCEPT</span></div><input aria-label="Amount of proposed patio concept shown" aria-valuetext={`${reveal}% of the proposed concept shown`} type="range" min="0" max="100" value={reveal} onChange={event => setReveal(Number(event.target.value))} /><p>Move the slider to compare the real patio with the proposed finish. The visualisation is indicative.</p></div>}
+        <figcaption aria-live="polite">{view === 'existing' ? 'The actual source photograph. The patio is open to the garden; the existing festoon lights are already present.' : view === 'compare' ? 'Same patio, two views: the actual photograph and an AI impression of the unbuilt enclosure.' : 'AI photo-based impression of the proposal, guided by the real patio photos and your supplied design reference.'}</figcaption>
+      </figure>
     </div>
+    <div className="patio-reference-heading"><div><p className="eyebrow">THE REAL STARTING POINT</p><h3>Five views of the existing patio.</h3></div><p>Actual supplied photographs. Reference only — separate from the completed construction portfolio above.</p></div>
+    <div className="patio-reference-grid">{patioImages.slice(1).map((photo, i) => <figure key={photo.name}><button onClick={() => setSelected(i + 1)} aria-label={`Open existing patio reference photograph ${i + 1} of 5`}><img src={asset(`images/concept/${photo.name}-480.webp`)} srcSet={sources(photo.name)} sizes="(max-width: 599px) 50vw, (max-width: 1000px) 33vw, 20vw" alt={photo.alt} width="1080" height="1440" loading="lazy" /><span>0{i + 1} / REFERENCE PHOTO</span><span className="patio-reference-plus" aria-hidden="true">+</span></button><figcaption>{photo.title.replace('Existing patio / ', '')}</figcaption></figure>)}</div>
+    <div className="patio-scope"><div><span>01 / PROPOSED ENCLOSURE</span><h3>Framing, cladding &amp; trim</h3><p>Explore stud-wall infill between the existing posts, with traditional cladding and neat trims.</p></div><div><span>02 / PROPOSED FEATURE</span><h3>An entertainment wall</h3><p>A charcoal slatted feature with possible TV, soundbar and cable-management options.</p></div><div><span>03 / PROPOSED ATMOSPHERE</span><h3>Warm lighting ideas</h3><p>Potential accent lighting around the feature wall, with the existing festoons retained in the visual.</p></div></div>
+    <p className="patio-scope-note">This is a design exploration, not a record of completed work or a construction plan. Site-specific details, permissions and appropriate qualified trades would be needed. Electrical licensing is not claimed; regulated electrical work would require a licensed trade.</p>
+    {selected !== null && <PatioLightbox initial={selected} onClose={() => setSelected(null)} />}
   </section>
+}
+
+function PatioLightbox({ initial, onClose }: { initial: number; onClose: () => void }) {
+  const dialog = useRef<HTMLDialogElement>(null)
+  const [index, setIndex] = useState(initial)
+  const [zoom, setZoom] = useState(false)
+  const photo = patioImages[index]
+  useEffect(() => {
+    const element = dialog.current
+    const opener = document.activeElement as HTMLElement | null
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    element?.showModal()
+    return () => { element?.close(); document.body.style.overflow = previousOverflow; if (opener?.isConnected) opener.focus({ preventScroll: true }) }
+  }, [])
+  function move(direction: number) { setIndex(value => (value + direction + patioImages.length) % patioImages.length); setZoom(false) }
+  return <dialog ref={dialog} className="lightbox patio-lightbox" aria-labelledby="patio-photo-title" aria-describedby="patio-photo-caption" onCancel={onClose} onClick={event => { if (event.target === event.currentTarget) onClose() }} onKeyDown={event => { if (event.key === 'ArrowRight') { event.preventDefault(); move(1) }; if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1) } }}>
+    <div className="lightbox-shell"><div className="lightbox-top"><span className="eyebrow">{photo.label}</span><button className="close-button" aria-label="Close patio image" onClick={onClose}>Close <span>×</span></button></div><div className={`lightbox-image ${zoom ? 'is-zoomed' : ''}`}><img src={asset(`images/concept/${photo.name}-1080.webp`)} alt={photo.alt} width="1080" height="1440" /></div><div className="lightbox-bottom"><div><span className="eyebrow red">{photo.kind === 'concept' ? 'AI CONCEPT / NOT CONSTRUCTED' : 'ACTUAL EXISTING PATIO / REFERENCE ONLY'}</span><h3 id="patio-photo-title">{photo.title}</h3><p id="patio-photo-caption">{photo.caption}</p></div><div className="lightbox-controls"><button aria-pressed={zoom} onClick={() => setZoom(!zoom)}>{zoom ? 'Fit patio image' : 'Zoom patio image'}</button><button aria-label="Previous patio image" onClick={() => move(-1)}><Arrow className="reverse" /></button><button aria-label="Next patio image" onClick={() => move(1)}><Arrow /></button></div></div></div>
+  </dialog>
 }

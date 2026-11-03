@@ -1,3 +1,20 @@
+# Real-photo patio concept revision — 3 November 2026
+
+The owner requested a concept based on the actual patio photographs, similar in appearance to their attached ChatGPT mockup, and reported an error in the previous concept version. The generic Structure / Finish diagram has been replaced completely with a photo-based proposal and a real-reference gallery. The supplied mockup informed appearance only; its completed-project claims were not copied.
+
+Verified for this revision:
+
+- TypeScript, ESLint, all seven regression tests and the production build pass. Build validation confirms six genuine completed-work photos, five separately labelled actual patio reference photos, one labelled unbuilt AI proposal, and no raw JPG/PNG originals in the deployment output.
+- The proposal was generated with the built-in image tool using actual patio photo `1000020835.jpg` as the edit target and `1000020834.jpg` as a supporting view. The exact prompt and provenance are saved in `docs/CONCEPT_VISUALISATION.md`. All 18 additional WebP derivatives have the expected dimensions, contain no EXIF metadata and are individually under 500 kB.
+- Existing photo / Proposed concept / Compare views function. The native slider was checked at 0%, 100% and with arrow-key increments; the clipping follows the displayed percentage. The original photo is the actual source of the edit.
+- The full-image dialog opens the proposal and cycles through all five original reference photos. Zoom, previous/next, keyboard arrow navigation and Escape work. Closing restores focus and the original body scroll state.
+- Browser checks at 1440 × 900, 768 × 1024, 375 × 812 and 320 × 568 show no horizontal overflow. Desktop and phone navigation reach the concept; the phone layout places the photo immediately after the heading. The 320px dialog retains usable close and navigation controls.
+- The exact `/brindle-property-maintenance/` production subpath was tested locally. Prerendered HTML places the direct `#concept` URL at the correct section before JavaScript hydration. Concept/reference images loaded successfully, and no warning or error was observed from the tested production origin.
+- The completed construction portfolio remains separate and retains all six actual project photographs. All contact destinations remain `tel:+61451743037`; no call was placed. No backend, booking service or production image-generation service is introduced.
+
+Publication verification is recorded below after deployment. The earlier release records follow for history.
+
+---
 # Portfolio-first revision — 3 November 2026
 
 This revision responds to the owner's report that the site had errors and did not show the portfolio clearly. The previous layout placed the real photographs after a 580svh construction sequence and a services section. The first version's successful build and asset requests did not establish that the portfolio was sufficiently visible or usable.

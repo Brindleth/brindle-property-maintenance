@@ -4,6 +4,7 @@ import App from './App'
 import './styles.css'
 import './refinements.css'
 import './portfolio-first.css'
+import './patio-concept.css'
 
 const root = document.getElementById('root')!
 const app = <React.StrictMode><App /></React.StrictMode>
