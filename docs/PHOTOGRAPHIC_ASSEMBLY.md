@@ -1,6 +1,6 @@
 # Photographic assembly and new BRINDLE branding — 4 November 2026
 
-The latest owner brief replaces the detached 3D model. All four original instruction documents remain preserved as historical briefs; the new photographic direction and smart-home branding take precedence.
+The latest owner brief replaces the detached 3D model. Subsequent owner steering restores the lowercase **brindle.** wordmark, replaces the scroll sequence with an automatic loop, and fully hides clips behind installed battens. The photographic direction and these corrections take precedence over older historical briefs.
 
 ## Image provenance and delivery
 
@@ -11,12 +11,12 @@ The starting camera is based on `1000020847.jpg`. The other views are hardware a
 Saved project masters (absolute directory: `C:/Users/Matth/Downloads/Brindle-Codex-Project/Brindle-Codex-Project/references/assembly-generated/`):
 
 - `thermal-wrap.png`: reconstructed clean wall, fixed camera/background.
-- `metal-battens-v2.png`: complete batten plate with reduced flat rectangular tabs.
+- `metal-battens-v3.png`: complete batten plate, corrected so no fixing tabs show on the channel faces. Earlier v1/v2 masters remain local history and are not published.
 - `window-trims.png`: photographic architrave/corner material plate.
 - `exterior-cladding.png`: photographic finish plate.
 - `fixing-tab.png`: isolated photographic tab with real alpha; cropped to its alpha bounds during optimization.
 
-The earlier full-frame clip renders were rejected for oversized or excessive hardware. They are not used by the animation. The final clips use a cutout constrained to **3–8 pixels wide and a 3:1 width-to-height ratio** in the 1152 × 1536 registration space, placed on the wall plane. This responds directly to the owner's scale correction. Batten tab sizes were also reduced.
+The earlier full-frame clip renders were rejected for oversized or excessive hardware. They are not used by the animation. Clips use a cutout constrained to **3–8 pixels wide and a 3:1 width-to-height ratio** in the 1152 × 1536 registration space. Each clip is explicitly occluded as the corresponding batten covers its position. A further precise photographic edit removed the visible tab faces from the batten image itself. The final versioned delivery files are `metal-battens-clean-{720,1080,1440}.webp`.
 
 `references/inspiration-generated/smart-home.png` supplies the new wireless smart-home category. Five service categories use illustrative photography, with one discreet disclosure. The retained patio reference/render pair and its clarification are unchanged.
 
@@ -24,11 +24,11 @@ The earlier full-frame clip renders were rejected for oversized or excessive har
 
 `src/data/photoAssembly.ts` defines the registration space, facade polygon, protected glass regions, fixing grid and projective cladding reveal geometry. The base scene stays fixed. SVG uses the photographic raster layers through clipping masks; it does not draw a replacement building or invent material texture. Windows/glass and the environment remain on the fixed background plate.
 
-Clips appear individually at small, perspective-scaled sizes. Eight batten groups grow down the wall; surrounds reveal around the existing openings; 22 perspective-following groups install the photographic cladding. All progress comes deterministically from the sticky section's scroll position, reverses in the same order, and updates through requestAnimationFrame. Stage shortcuts are optional aids, not the primary interaction. No crossfade between mismatched source camera views is used.
+Clips appear individually at small, perspective-scaled sizes. Eight batten groups grow down the wall; surrounds reveal around the existing openings; 22 perspective-following groups install the photographic cladding. A deterministic 30-second loop pauses briefly on each complete stage, holds the finished wall, then fades the construction layers back to the same clean thermal-wrap plate. All camera views stay registered. Normal scrolling leaves the single-screen opening immediately. A Play/Pause button controls motion; stage indicators are read-only. The loop suspends when offscreen or the document is hidden and resumes without jumping ahead.
 
-Still view, reduced-motion preference and image-error fallback retain readable content and direct contact. The image-error path uses the original supplied finished-detail photograph. This is an illustrative construction reconstruction, not a fixing specification, installation plan or engineering certification.
+Reduced-motion preference shows a finished still view; image-error fallback uses the original supplied finished-detail photograph. Readable content and direct contact remain available. This is an illustrative construction reconstruction, not a fixing specification, installation plan or engineering certification.
 
-Build-ready assets: four full photographic plates at 720/1080/1440 widths, one alpha WebP cutout, and the new service image at 480/960/1440. All are metadata-free local files in `public/images/`. The interactive composition uses the 1080 plate size to avoid responsive source swaps during scrolling. PNG masters stay local; a fresh Git clone builds from the committed WebPs.
+Build-ready assets: four full photographic plates at 720/1080/1440 widths, one alpha WebP cutout, and the new service image at 480/960/1440. All are metadata-free local files in `public/images/`. The composition uses the 1080 plate size to avoid source swaps during animation. PNG masters stay local; a fresh Git clone builds from committed WebPs. The latest batten master was copied from the tool output `C:/Users/Matth/.codex/generated_images/01a1a0d5-1133-7f82-9100-5f509b4c8da9/exec-f3da7d80-795d-424b-ab0c-db10794ac640.png` without removing that original output.
 
 ## Exact built-in prompts
 
@@ -66,6 +66,14 @@ Use case: precise-object-edit. Image 1 is the locked clean thermal-wrap camera p
 
 ```text
 Use case: precise-object-edit. Image 1 is the edit target: the fully battened photographic construction plate. Make ONE precise correction only: all metal fixing tabs/clips attached to the vertical channels must be much smaller thin horizontal rectangular tabs, as shown in the owner's actual unfinished wall reference Image 2. Reduce each existing square/oversized clip to roughly one third its current visible area: small flat galvanised rectangular tabs, about twice as wide as tall, each no wider than its associated narrow batten, sitting flush with a tiny screw head. No L-shaped feet, chunky brackets, large squares, protruding blocks or big washers. Preserve EXACTLY all batten positions, channel widths, regular spacing, EVERY other scene pixel, reflective wrap, windows, frames, reflections, roofline, camera, original 3:4 canvas, trees, sky, workbench, ladders and tools. Do not remove or move any channel. Do not add more clips, text or labels. Output the same photograph with only the clips corrected in scale and rectangular shape.
+```
+
+### Clips hidden behind battens — final correction
+
+Input: `references/assembly-generated/metal-battens-v2.png`. Output master: `references/assembly-generated/metal-battens-v3.png`.
+
+```text
+Use case: precise-object-edit. Edit the supplied fully battened wall photograph with ONE correction only. REMOVE every small square or rectangular metal clip/tab visible on the FRONT or sides of each vertical metal batten/channel. The clips are BEHIND the battens in the real construction, fully hidden by the metal channels, so the visible channel faces must be clean uninterrupted galvanised metal. Remove each little protruding tab and its screw/washer from the channel face and reconstruct the matching channel surface. No exposed clips anywhere between channels either. Preserve EXACTLY the number, position, width, length and perspective of ALL vertical battens; preserve the reflective foil texture, EVERY window and glass reflection, white factory frames, roof/eaves, workbench and materials, ladder, ground, trees, sky, lighting, original portrait canvas and camera crop. Do not add or remove any batten. No cladding, no new trim, labels or other changes. This is a fixed registration plate: all surrounding geometry must remain pixel aligned.
 ```
 
 ### Photographic fixing-tab cutout

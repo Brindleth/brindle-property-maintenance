@@ -1,7 +1,7 @@
 # BRINDLE
 ## Property Maintenance & Smart Home Solutions
 
-The existing site now opens with a full-screen photographic construction assembly based on the owner's exterior-wall references. The detached 3D model, Three.js and React Three Fiber have been removed. React, TypeScript and Vite produce a completely static frontend.
+The existing site now opens with a full-screen, automatically looping photographic construction assembly based on the owner's exterior-wall references. The lowercase **brindle.** wordmark restores the owner's preferred typography. React, TypeScript and Vite produce a completely static frontend.
 
 [Public website](https://brindleth.github.io/brindle-property-maintenance/) · [Repository](https://github.com/Brindleth/brindle-property-maintenance)
 
@@ -21,7 +21,7 @@ npm.cmd run check
 npm.cmd run preview
 ~~~
 
-The check command runs TypeScript, ESLint, **17 regression tests**, the production build, static prerender and output validation. Preview normally serves dist at http://127.0.0.1:4173/. To reproduce the exact Pages base:
+The check command runs TypeScript, ESLint, **18 regression tests**, the production build, static prerender and output validation. Preview normally serves dist at http://127.0.0.1:4173/. To reproduce the exact Pages base:
 
 ~~~powershell
 $env:BASE_PATH='/brindle-property-maintenance/'
@@ -33,13 +33,13 @@ npm.cmd run preview
 
 Thermal wrap → small metal clips → complete metal battens → white window surrounds/corners → horizontal cladding.
 
-A sticky full-viewport scene maps scrolling continuously to registered photographic layers. Clips appear individually; batten groups and perspective-following cladding groups reveal progressively. Reverse scrolling removes them in the same order. Stage buttons provide optional keyboard-accessible shortcuts. The window glass, camera and environment remain on a fixed plate.
+A single-viewport scene automatically builds through all five stages in a 30-second loop, with settled pauses between installations and a gentle fade back to the thermal-wrap starting plate. Normal scrolling goes directly to the services. One Play/Pause control keeps the interface simple. The window glass, camera and environment remain on a fixed plate.
 
 The animation is explicitly a **photo-based reconstruction**, never additional evidence of completed work or an installation specification. The untouched original photographs remain in one compact Actual work viewer with swipe, arrows and a native stage range. Captions acknowledge different viewpoints and the incomplete upper facade in the genuine finish photograph.
 
-Fixing tabs use an alpha-preserving photographic cutout. Scene geometry limits them to 3–8 pixels wide, with a 3:1 rectangular ratio in the 1152 × 1536 registration space. This follows the owner's correction that the first generated clips were too large. Oversized and excessive full-frame clip variants are not used.
+Fixing tabs use an alpha-preserving photographic cutout, limited to 3–8 pixels wide with a 3:1 rectangular ratio. Each clip disappears behind its corresponding installing batten. The clean batten plate has no exposed tabs on its channel faces. Perspective-following cladding groups cover the full facade.
 
-Still view, reduced-motion preferences and image-error fallback preserve the page and contact. The image-error path shows the original cladding-detail photograph. The renderer uses passive scroll observation and requestAnimationFrame, without WebGL or any runtime server.
+Reduced-motion preferences show the finished still view. Image errors fall back to the original cladding-detail photograph. The requestAnimationFrame loop pauses offscreen, when the browser tab is hidden, or when the visitor selects Pause. There is no WebGL or runtime server.
 
 ## Services and contact
 
@@ -47,7 +47,7 @@ Five visually distinct categories cover Property Maintenance, Construction & Car
 
 The patio retains its touch-friendly before-and-after comparison using the original Perth reference and corresponding proposed finish. It remains an unbuilt design visualisation, with no separate gallery.
 
-The dominant wordmark is BRINDLE, supported by Property Maintenance & Smart Home Solutions. Title, metadata, social card, footer and relevant accessible labels use the new identity. All telephone links use **0451 743 037**, linked to **tel:+61451743037**. The mobile call bar and copy-number control remain.
+The dominant visual wordmark is **brindle.**, supported by Property Maintenance & Smart Home Solutions. Title, metadata, social card, footer and accessible labels retain the full business identity. All telephone links use **0451 743 037**, linked to **tel:+61451743037**. The mobile call bar and copy-number control remain.
 
 No backend, database, booking, form, tracking, paid hosting service, external font host or production image API is required.
 
@@ -56,7 +56,7 @@ No backend, database, booking, form, tracking, paid hosting service, external fo
 - Business name, phone, area, training and rate wording: src/config/business.ts.
 - Service categories and permitted scope: src/data/services.ts.
 - Scene masks, fixing positions and photographic registration: src/data/photoAssembly.ts.
-- Scroll timing and reversible stage mapping: src/lib/construction.ts.
+- Automatic loop timing, stage mapping and clip occlusion: src/lib/construction.ts.
 - Scene and fallback: src/components/ConstructionExperience.tsx.
 - Latest layout and branding: src/photo-story.css.
 - Genuine-photo captions: src/data/projectStages.ts.

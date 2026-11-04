@@ -2,7 +2,7 @@
 // Windows and foreground remain on the fixed camera plate.
 export const photoAssembly = {
   width: 1152, height: 1536,
-  files: ['thermal-wrap','metal-battens','window-trims','exterior-cladding'],
+  files: ['thermal-wrap','metal-battens-clean','window-trims','exterior-cladding'],
   wall: '528,0 1152,0 1152,1415 340,843 338,529',
   largeWindow: '528,620 1152,412 1152,1264 528,952',
   smallWindow: '433,659 446,654 446,792 433,791',

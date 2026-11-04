@@ -1,3 +1,23 @@
+# Automatic build loop and restored wordmark — 4 November 2026
+
+The owner's latest correction restores the lowercase **brindle.** visual wordmark and replaces the long scroll sequence with one full-screen automatic photographic build loop. It supersedes the scroll-specific verification in the historical record below.
+
+Verified for this revision:
+
+- TypeScript, ESLint, all **18 regression tests**, the production build, static prerender and output validation pass at the exact GitHub Pages base. The application is approximately 79 kB gzip. The frontend has no WebGL renderer, backend, database, booking system or paid API.
+- A natural browser observation captured all five stages without scrolling: clips at 21%, battens at 42%, surrounds at 58%, cladding at 74% and 100%, then thermal wrap at 0% on the next loop. Scroll position remained exactly zero. The loop takes 30 seconds, with settled stage holds and a gentle reset.
+- All clip sprites read opacity zero after the complete battens, during trims and at the cladding finish. A separate precise photographic edit removed exposed clip faces from the batten plate. Versioned clean-batten URLs avoid reuse of the previous image. Regression coverage checks occlusion for every fixing, timing holds/restart, perspective cladding geometry and tab scale.
+- Play/Pause holds the current frame and resumes. A native phone-width click resumed the loop without moving the page. Normal scrolling goes directly into services; the animation suspends once less than 15% of the opening is visible. Its progress stayed unchanged while navigating the actual-work and patio sections.
+- Browser layouts at approximately **1440 × 900, 768 × 1024, 375 × 812 and 320 × 568** have no horizontal overflow. The restored lowercase typography, supporting business line, navigation, stage labels and motion control remain readable. Phone-width navigation closes after selection.
+- The actual-work slider's End key selected the fourth original photograph, Next wrapped to the first, and a native horizontal drag advanced from Stage 1 to Stage 2. Patio Home/End reached 0/100%; dragging the image changed it to 24%. The original photos and concise patio proposal clarification are preserved.
+- All five telephone destinations are **tel:+61451743037**; no call was placed. No broken loaded images or application warning/error logs were observed in the production preview.
+- All **75 local production file URLs**, including **61 metadata-free WebPs**, returned HTTP 200. Original construction photos and generated masters remain untouched locally and excluded from publication. No final image assets are missing; exact edit prompts and saved paths are recorded in docs/PHOTOGRAPHIC_ASSEMBLY.md.
+- Reduced-motion visitors receive the finished still view. Browser emulation does not expose the OS preference control, so this preference path was reviewed in source; no physical-device or OS-setting test is claimed.
+
+Deployment verification follows after the application commit is published.
+
+---
+
 # Photographic assembly and Smart Home Solutions — 4 November 2026
 
 The owner's complete revision brief supersedes the prior detached 3D experience. Branding is now BRINDLE — Property Maintenance & Smart Home Solutions throughout the wordmark, metadata, social card, footer and relevant accessible labels. Five service categories keep practical construction/property work and permitted smart-home/custom electronics work balanced.
