@@ -2,14 +2,14 @@ import { useEffect, useRef, useState } from 'react'
 import { business } from '../config/business'
 import { Arrow, Brand } from './Icons'
 
-const links = [['#services', 'Services'], ['#work', 'Actual work'], ['#concept', 'Outdoor'], ['#experience', 'Experience'], ['#contact', 'Contact']] as const
+const links = [['#services', 'Services'], ['#smart-home', 'Smart home'], ['#work', 'Actual work'], ['#concept', 'Outdoor'], ['#experience', 'Experience'], ['#contact', 'Contact']] as const
 
 export default function Header() {
   const [open, setOpen] = useState(false)
   const menuButton = useRef<HTMLButtonElement>(null)
   const menu = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    const desktop = window.matchMedia('(min-width: 761px)')
+    const desktop = window.matchMedia('(min-width: 1101px)')
     const closeOnDesktop = () => { if (desktop.matches) setOpen(false) }
     desktop.addEventListener('change', closeOnDesktop)
     return () => desktop.removeEventListener('change', closeOnDesktop)
@@ -34,13 +34,13 @@ export default function Header() {
 
   function followLink() { setOpen(false); menuButton.current?.focus() }
   return <header className={`site-header ${open ? 'menu-open' : ''}`}>
-    <a className="brand-link" href="#top" aria-label="Brindle home" onClick={() => setOpen(false)}><Brand /></a>
+    <a className="brand-link" href="#top" aria-label={`${business.fullName} home`} onClick={() => setOpen(false)}><Brand /></a>
     <nav className="desktop-nav" aria-label="Main navigation">{links.map(([href, text]) => <a key={href} href={href}>{text}</a>)}</nav>
     <a className="header-call" href={business.telephone}>{business.phone}<Arrow diagonal /></a>
     <button ref={menuButton} className="menu-button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Close navigation' : 'Open navigation'} onClick={() => setOpen(!open)}><span /><span /></button>
     {open && <div className="mobile-menu" id="mobile-menu" ref={menu}>
       <span className="eyebrow">GOOD WORK STARTS HERE.</span>
-      <nav aria-label="Mobile navigation">{links.map(([href, text], i) => <a key={href} href={href} onClick={followLink}><sup>0{i + 1}</sup>{text}<Arrow diagonal /></a>)}<a href="#top" onClick={followLink}><sup>06</sup>3D experience<Arrow diagonal /></a></nav>
+      <nav aria-label="Mobile navigation">{links.map(([href, text], i) => <a key={href} href={href} onClick={followLink}><sup>0{i + 1}</sup>{text}<Arrow diagonal /></a>)}<a href="#top" onClick={followLink}><sup>07</sup>Watch the build<Arrow diagonal /></a></nav>
       <a className="mobile-menu-call" href={business.telephone}>Let’s talk.<br />{business.phone}<Arrow diagonal /></a>
       <p>{business.serviceArea}</p>
     </div>}

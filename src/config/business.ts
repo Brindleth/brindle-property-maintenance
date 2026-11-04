@@ -1,6 +1,8 @@
 /** Public business details. Change here; never publish an unapproved rate or home address. */
 export const business = {
-  name: 'Brindle Property Maintenance',
+  name: 'BRINDLE',
+  tagline: 'Property Maintenance & Smart Home Solutions',
+  fullName: 'BRINDLE — Property Maintenance & Smart Home Solutions',
   phone: '0451 743 037',
   telephone: 'tel:+61451743037',
   serviceArea: 'Melbourne & surrounding areas',

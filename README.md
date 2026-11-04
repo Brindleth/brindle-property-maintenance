@@ -1,95 +1,88 @@
-# Brindle Property Maintenance
+# BRINDLE
+## Property Maintenance & Smart Home Solutions
 
-The existing Brindle website, refined with a full-screen interactive Three.js / React Three Fiber opening, a varied service showcase, one compact real-photo project viewer and a patio before-and-after comparison. No backend, database, forms, booking system, tracking, paid service, external font host or API key is required. All contact links use **0451 743 037** (`tel:+61451743037`).
+The existing site now opens with a full-screen photographic construction assembly based on the owner's exterior-wall references. The detached 3D model, Three.js and React Three Fiber have been removed. React, TypeScript and Vite produce a completely static frontend.
 
-Publication URL: [Brindle Property Maintenance](https://brindleth.github.io/brindle-property-maintenance/). Source: [Brindleth/brindle-property-maintenance](https://github.com/Brindleth/brindle-property-maintenance). See the validation record for deployment status.
+[Public website](https://brindleth.github.io/brindle-property-maintenance/) · [Repository](https://github.com/Brindleth/brindle-property-maintenance)
 
 ## Run on Windows
 
-Open PowerShell in **this folder** (containing `package.json`, inside the outer extracted folder). Install Node.js 22.14 or newer; verified with Node 22.14 and npm 10.9.
+Use PowerShell in this folder (the inner extracted folder containing package.json), with Node.js 22.14 or newer:
 
-```powershell
-npm.cmd install
+~~~powershell
+npm.cmd ci
 npm.cmd run dev
-```
+~~~
 
-Open the Local URL printed by Vite, normally `http://127.0.0.1:5173/`. Plain `npm` also works when PowerShell permits its script wrapper. `.cmd` avoids execution-policy and forwarded-argument issues without changing your system settings.
+Open the Local URL printed by Vite, normally http://127.0.0.1:5173/. The .cmd suffix avoids PowerShell script-wrapper and forwarded-argument issues without changing system settings.
 
-```powershell
+~~~powershell
 npm.cmd run check
 npm.cmd run preview
-```
+~~~
 
-`check` runs TypeScript, ESLint, thirteen regression tests and the verified production build. `preview` serves `dist/` at `http://127.0.0.1:4173/` for local verification. `npm ci` reproduces the locked dependencies.
+The check command runs TypeScript, ESLint, **17 regression tests**, the production build, static prerender and output validation. Preview normally serves dist at http://127.0.0.1:4173/. To reproduce the exact Pages base:
 
-## Included experience
-
-- The existing full-screen construction scene opens the site. Six reversible scroll stages, stage shortcuts, model rotation, static mode and persistent phone access retain the white/black/red identity. Direct Services and Actual work links bypass the scroll sequence.
-- Services lead the page after the opening: timber/steel framing support, partitions and fit-outs, feature walls, cladding, painting/maintenance, outdoor spaces, and low-voltage lighting/concealed AV. Seven realistic service illustrations share one unobtrusive disclosure. Assistance and agreed-scope wording avoid implying unheld trade authorisations.
-- One compact four-stage project viewer keeps the actual photographs together. Native draggable range control, arrows, horizontal pointer swipes, keyboard shortcuts and reduced-motion crossfades. Portrait originals remain fully visible against an ambient backdrop.
-- Photo mapping: 1000020847 early wrapped exterior with initial fixings; 1000020945 wrap/clips/battens; 1000020946 small-window perimeter detail before cladding; 1000020958 horizontal cladding around the large window with upper wrap still exposed. Different viewpoints are stated explicitly. The optional steel-framing/noggins photo is under Inside the frame.
-- The restored patio comparison pairs the original Perth reference with its corresponding proposed finish. Direct image dragging and an accessible native range control reveal either image fully. **Outdoor Transformation — Design Visualisation** and a short unbuilt-work clarification identify the proposal. No separate gallery or prominent concept badge remains.
-- Build-time prerendered copy and photographs remain available before JavaScript. Client hydration starts the lazy WebGL renderer with a static fallback; reduced motion, missing WebGL and context loss retain the readable page. Local fonts, responsive images and on-demand rendering remain in place.
-- Shorter services copy, actual training records, rates by phone, copy-number control, responsive navigation and an accessible mobile call bar. Frontend only.
-
-## Edit business details
-
-Edit `src/config/business.ts` for the phone, Melbourne service area, rate wording, availability and training. The current service showcase is in `src/data/capabilities.ts`. Rates deliberately say **Rates discussed by phone**; no unapproved hourly price is published. If changing service area, also update the SEO description in `index.html` and social card in `scripts/prepare-assets.mjs`.
-
-Stage mapping and truthful captions are in `src/data/projectStages.ts`. The viewer is in `src/components/Portfolio.tsx`; the opening is in `src/components/ConstructionExperience.tsx`; page order is in `src/App.tsx`. Construction timing is in `src/lib/construction.ts`; geometry is in `src/components/ConstructionScene.tsx`. The latest layout rules are in `src/service-balance.css` and `src/patio-concept.css`.
-
-The project role remains construction support using supplied materials and instructions. Do not add a home address, invented projects, testimonials, licences or certification claims.
-
-## Supplied photographs and generated assets
-
-All six construction-photo originals and their 18 metadata-free derivatives remain preserved. Four verified views are used in the main stage viewer; the steel-framing view is optional within that same project section. The alternate small-window photograph remains available without adding another main stage. Actual project photographs are not repeated elsewhere on the page.
-
-The five original patio references remain preserved locally. One reference and its corresponding proposed rendering are published as six responsive WebPs. Seven service illustrations have 21 responsive WebP derivatives. Together with the 18 construction assets, the site ships 45 optimized WebPs. Generated PNG masters and original JPGs are Git-ignored and excluded from deployment; committed derivatives make a fresh clone buildable without generation tools.
-
-To regenerate assets when the preserved source files are available:
-
-```powershell
-npm.cmd run assets
-npm.cmd run assets:concept
-npm.cmd run assets:inspiration
+~~~powershell
+$env:BASE_PATH='/brindle-property-maintenance/'
 npm.cmd run check
-```
+npm.cmd run preview
+~~~
 
-Latest exact built-in prompts and source/output paths: `docs/SERVICE_REBALANCE_ASSETS.md`. Earlier retained image provenance is in `docs/CONCEPT_VISUALISATION.md` and `docs/INSPIRATION_ASSETS.md`. No image-generation service runs on the published site. No final image assets remain missing.
+## Photographic assembly
 
-The four original brief documents remain unchanged. The original handoff README is preserved in `docs/ORIGINAL_HANDOFF.md`; `docs/FUTURE_SCOPE.md` preserves future plans without adding a backend.
+Thermal wrap → small metal clips → complete metal battens → white window surrounds/corners → horizontal cladding.
 
-## Publish free: GitHub Pages
+A sticky full-viewport scene maps scrolling continuously to registered photographic layers. Clips appear individually; batten groups and perspective-following cladding groups reveal progressively. Reverse scrolling removes them in the same order. Stage buttons provide optional keyboard-accessible shortcuts. The window glass, camera and environment remain on a fixed plate.
 
-`.github/workflows/deploy.yml` installs locked dependencies, lints, tests, builds with the correct repository base and deploys only `dist/`. It runs on pushes to `main` or manual workflow dispatch, using Node 22 and GitHub's built-in short-lived Actions token. No secret is needed.
+The animation is explicitly a **photo-based reconstruction**, never additional evidence of completed work or an installation specification. The untouched original photographs remain in one compact Actual work viewer with swipe, arrows and a native stage range. Captions acknowledge different viewpoints and the incomplete upper facade in the genuine finish photograph.
 
-If not already deployed:
+Fixing tabs use an alpha-preserving photographic cutout. Scene geometry limits them to 3–8 pixels wide, with a 3:1 rectangular ratio in the 1152 × 1536 registration space. This follows the owner's correction that the first generated clips were too large. Oversized and excessive full-frame clip variants are not used.
 
-1. Create a public GitHub repository, for example `brindle-property-maintenance`.
-2. Push this folder's contents (not the enclosing extraction folder) to `main`. Keep the original-photo exclusions in `.gitignore`.
-3. Open repository **Settings > Pages > Build and deployment > Source > GitHub Actions**.
-4. Open **Actions > Build and publish Brindle > Run workflow**. Wait for both jobs to pass.
-5. Open the returned HTTPS URL and check it on your phone.
+Still view, reduced-motion preferences and image-error fallback preserve the page and contact. The image-error path shows the original cladding-detail photograph. The renderer uses passive scroll observation and requestAnimationFrame, without WebGL or any runtime server.
 
-The optional `scripts/github-pages.mjs` local administrative helper uses the original owner's credential manager. It is never bundled or required by the website and stores no credential. Future updates need only `git push`.
+## Services and contact
 
-## Publish free: Cloudflare Pages
+Five visually distinct categories cover Property Maintenance, Construction & Carpentry Support, Smart Home Solutions, Custom Electronics & Entertainment, and Outdoor Living. Smart-home work is limited to permitted planning, device selection, wireless configuration, plug-in/battery devices and troubleshooting. Fixed wiring, switchboards, hardwired lighting and regulated cabling require the appropriate practitioner.
 
-Use a free Cloudflare account. For Direct Upload:
+The patio retains its touch-friendly before-and-after comparison using the original Perth reference and corresponding proposed finish. It remains an unbuilt design visualisation, with no separate gallery.
 
-1. Run `npm.cmd run build`.
-2. Open **Workers & Pages > Create application > Get started > Drag and drop your files**.
-3. Choose a project name and upload **the contents of `dist/`**, or drag the `dist` folder. Upload no source files or node_modules.
-4. Select **Deploy site** and open the returned pages.dev HTTPS URL.
+The dominant wordmark is BRINDLE, supported by Property Maintenance & Smart Home Solutions. Title, metadata, social card, footer and relevant accessible labels use the new identity. All telephone links use **0451 743 037**, linked to **tel:+61451743037**. The mobile call bar and copy-number control remain.
 
-Dashboard labels can vary; [Cloudflare's Direct Upload guide](https://developers.cloudflare.com/pages/get-started/direct-upload/) is the source of truth. Direct Upload projects cannot later switch to Git integration; create a separate Git-integrated project if needed.
+No backend, database, booking, form, tracking, paid hosting service, external font host or production image API is required.
 
-For Git integration: connect the repository; preset **Vite** or none; build command **`npm run build`**; output **`dist`**; root **`/`**; environment **`NODE_VERSION=22`**. No functions or bindings are needed. If files are nested in a repository subfolder, select that as the build root.
+## Edit content and assets
 
-Default relative asset paths support domain roots and repository subpaths; the GitHub workflow explicitly sets `BASE_PATH`. Use HTTP(S), not file://, to preview ES modules.
+- Business name, phone, area, training and rate wording: src/config/business.ts.
+- Service categories and permitted scope: src/data/services.ts.
+- Scene masks, fixing positions and photographic registration: src/data/photoAssembly.ts.
+- Scroll timing and reversible stage mapping: src/lib/construction.ts.
+- Scene and fallback: src/components/ConstructionExperience.tsx.
+- Latest layout and branding: src/photo-story.css.
+- Genuine-photo captions: src/data/projectStages.ts.
+- Patio sources and disclosure: src/data/patio.ts.
 
-Canonical and social URLs currently target the configured GitHub Pages address. If changing hosts or choosing a custom domain, update canonical, og:url and og:image in `index.html`. Cloudflare's `_headers` applies on Cloudflare; GitHub Pages cannot set these custom response headers.
+All six supplied construction-photo originals remain untouched locally. Their 18 derivatives, the patio's six derivatives, retained service assets and 13 assembly assets are local metadata-free WebPs. Original JPGs and generated PNG masters stay in Git-ignored folders and are excluded from Pages. Committed optimized assets make a fresh clone buildable without generation tools.
 
-## Validation and limits
+Exact image prompts, built-in tool mode, saved master paths and reproduction details are in **docs/PHOTOGRAPHIC_ASSEMBLY.md**. The owner's current brief is preserved in docs/PHOTOGRAPHIC_REVISION_BRIEF.md. Earlier asset provenance and release records remain for history. No final image assets are missing.
 
-See `docs/VALIDATION.md` for actual checks and the deployment outcome. Phone-link tests verify exact tel: destinations without placing a call; a supported OS dialler is required. Mobile testing uses browser viewport emulation, not physical Android/iOS hardware.
+With the preserved masters available:
+
+~~~powershell
+npm.cmd run assets:assembly
+npm.cmd run assets:inspiration
+node scripts/prepare-brand-assets.mjs
+npm.cmd run check
+~~~
+
+Do not publish a home address, unapproved price, invented licence, certification, testimonial or completed-project claim.
+
+## Publish on the existing free GitHub Pages site
+
+Push reviewed changes to main. The existing .github/workflows/deploy.yml installs locked dependencies, runs the checks, builds with BASE_PATH=/brindle-property-maintenance/ and deploys only dist using GitHub Actions. No secret, subscription or backend is required.
+
+If the workflow is disabled, open repository Settings → Pages and select GitHub Actions, then Actions → Build and publish Brindle → Run workflow. Do not create another repository or change the existing public address.
+
+The optional scripts/github-pages.mjs administrative helper uses the owner's credential manager in memory and is never bundled. No credential is stored in the site.
+
+Actual validation and deployment results are recorded in docs/VALIDATION.md. Phone destinations are checked without placing calls. Browser phone checks use viewport emulation and pointer gestures; physical Android/iOS and OS-level reduced-motion settings are not simulated.

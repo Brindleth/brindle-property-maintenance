@@ -1,34 +1,40 @@
-import { test } from 'node:test'
-import assert from 'node:assert/strict'
-import { assembly, phase, scrollProgress, stageAt, stageProgress } from '../src/lib/construction.ts'
+import{test}from'node:test'
+import assert from'node:assert/strict'
+import{assembly,pieceProgress,scrollProgress,stageAt,stageProgress,constructionStages}from'../src/lib/construction.ts'
+import{boardPolygon,fixingTabs}from'../src/data/photoAssembly.ts'
 
-test('scroll maps to the same construction state in both directions, including bounds', () => {
-  assert.equal(scrollProgress(-500, 0, 5800, 1000), 0)
-  assert.equal(scrollProgress(9000, 0, 5800, 1000), 1)
-  const positions = [0, 650, 1200, 2400, 3600, 4800]
-  const forward = positions.map(y => scrollProgress(y, 0, 5800, 1000))
-  const backward = [...positions].reverse().map(y => scrollProgress(y, 0, 5800, 1000)).reverse()
-  assert.deepEqual(forward, backward)
-  assert.equal(forward[3], 0.5)
-  assert.equal(scrollProgress(0, 0, 100, 1000), 0)
+test('five photographic stages match the specified installation order',()=>{
+ assert.deepEqual(constructionStages.map(s=>s.label),['Thermal wrap','Metal clips','Metal battens','Window surrounds & corners','Exterior cladding'])
+ for(let i=0;i<5;i++)assert.equal(stageAt(stageProgress(i)),i)
+ assert.equal(stageAt(-2),0);assert.equal(stageAt(2),4)
 })
-
-test('each keyboard-accessible stage shortcut lands in its own stage', () => {
-  for (let i = 0; i < 6; i++) assert.equal(stageAt(stageProgress(i)), i)
-  assert.equal(stageAt(1), 5)
-  assert.equal(stageAt(-1), 0)
-  assert.equal(phase(stageProgress(5), ...assembly.trim), 1, 'Final shortcut must fully assemble the trim')
+test('assembly progress is deterministic in forward and reverse scrolling',()=>{
+ const positions=[0,200,500,1100,2000,3000,4400,9000]
+ const map=y=>scrollProgress(y,0,5400,1000)
+ assert.deepEqual(positions.map(map),[...positions].reverse().map(map).reverse())
+ assert.equal(map(-100),0);assert.equal(map(4400),1)
 })
-
-test('assembly begins with ground layout and ends with every layer complete', () => {
-  for (const timing of Object.values(assembly)) {
-    assert.equal(phase(0, ...timing), 0)
-    assert.equal(phase(1, ...timing), 1)
-    let previous = 0
-    for (let i = 0; i <= 100; i++) {
-      const current = phase(i / 100, ...timing)
-      assert.ok(current >= previous && current <= 1)
-      previous = current
-    }
+test('individual installation groups finish in order and fully reverse',()=>{
+ for(const timing of Object.values(assembly))for(const count of [1,8,22]){
+  for(let i=0;i<count;i++){
+   assert.equal(pieceProgress(0,timing,i,count),0)
+   assert.equal(pieceProgress(1,timing,i,count),1)
+   let previous=0
+   for(let j=0;j<=100;j++){const p=pieceProgress(j/100,timing,i,count);assert.ok(p>=previous&&p<=1);previous=p}
   }
+ }
+ assert.equal(pieceProgress(.30,assembly.clips,7,8),1)
+ assert.equal(pieceProgress(.30,assembly.battens,0,8),0)
+ assert.equal(pieceProgress(.68,assembly.trims,0,1),1)
+ assert.equal(pieceProgress(.68,assembly.cladding,0,22),0)
+})
+test('cladding reveal polygons follow facade perspective and collapse at zero progress',()=>{
+ const points=boardPolygon(10,22).split(' ').map(p=>p.split(',').map(Number))
+ assert.ok(points[1][1]<points[0][1],'Board follows the upward-to-right course perspective')
+ const zero=boardPolygon(10,22,0).split(' ')
+ assert.equal(zero[0],zero[3]);assert.equal(zero[1],zero[2])
+})
+test('fixing tabs stay small and rectangular at every perspective position',()=>{
+ assert.ok(fixingTabs.length>20&&fixingTabs.length<120)
+ for(const tab of fixingTabs){assert.ok(tab.width>=3&&tab.width<=8);assert.equal(tab.height,tab.width/3);assert.ok(Number.isFinite(tab.angle))}
 })

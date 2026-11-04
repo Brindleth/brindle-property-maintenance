@@ -24,7 +24,7 @@ export default function PatioComparison() {
         <span className="outdoor-divider" style={{ left: `${split}%` }} aria-hidden="true"><span>↔</span></span>
       </div>
       <div className="outdoor-range"><label className="sr-only" htmlFor="patio-comparison">Compare existing patio and proposed design</label><input id="patio-comparison" type="range" min="0" max="100" value={split} aria-valuetext={`${split}% existing patio, ${100 - split}% proposed design`} onChange={event => setSplit(Number(event.target.value))} /><div aria-hidden="true"><span>Show proposed</span><span>Drag to compare</span><span>Show existing</span></div></div>
-      <figcaption>{patioComparison.label}. Unbuilt proposal; the existing patio and lighting are not Brindle’s completed work.</figcaption>
+      <figcaption>{patioComparison.label}. Unbuilt proposal; the existing patio and lighting are not BRINDLE’s completed work.</figcaption>
     </figure>
   </section>
 }

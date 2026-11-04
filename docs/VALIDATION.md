@@ -1,3 +1,23 @@
+# Photographic assembly and Smart Home Solutions — 4 November 2026
+
+The owner's complete revision brief supersedes the prior detached 3D experience. Branding is now BRINDLE — Property Maintenance & Smart Home Solutions throughout the wordmark, metadata, social card, footer and relevant accessible labels. Five service categories keep practical construction/property work and permitted smart-home/custom electronics work balanced.
+
+Verified locally for this revision:
+
+- TypeScript, ESLint, all **17 regression tests**, production build, static prerender and output validation pass at the exact `/brindle-property-maintenance/` deployment base. npm dependency audit during removal of the old renderer reported zero vulnerabilities. Three.js, React Three Fiber and their unused components are removed; the production output has no 3D renderer chunk or canvas. The application bundle is approximately 79 kB gzip, plus local CSS/fonts and photographic assets.
+- All six original construction JPGs were inspected. `1000020847` is the fixed-camera starting reference; `1000020954`/`1000020946` supply fixing/batten appearance and `1000020958` supplies the cladding/white-surround finish. Reconstructed stages are explicitly identified and never added to the genuine portfolio. The genuine four-stage viewer and optional original framing detail remain compact and truthful, with personal hands-on involvement stated.
+- Photographic assembly progresses through thermal wrap, small rectangular metal fixing tabs, complete metal battens, window surrounds/corners and horizontal cladding. Facade/glass masks preserve the fixed camera and surrounding scene. Individual tabs, eight batten groups and 22 perspective-following cladding groups are scroll controlled. No mismatch-camera crossfade or replacement 3D wall is used.
+- The owner's clip-size correction is enforced in scene geometry: tabs use a photographic alpha cutout with a 3:1 rectangular ratio and 3–8 pixel width limit in the 1152 × 1536 registration space. The largest placed tab measures approximately 7.36 units. Oversized/excessive full-frame clip variants were rejected and are not published. Batten fixing tabs were also reduced.
+- Native scrolling in the production preview advanced from 0% to 39% (partial battens), then 79% (partial cladding), and reversed to the identical 39% scroll position. The batten rectangle heights and cladding polygon points matched exactly on return. Keyboard stage access was checked; first/final shortcuts and complete cladding were visually inspected.
+- Browser viewport checks at approximately 1440 × 900, 768 × 1024, 375 × 812 and 320 × 568 show no horizontal document overflow. Mobile navigation, the assembly, persistent call bar and narrow typography remain usable. The still-view control collapses the sequence to one viewport, shows the photographic finish and re-enables scrolling. The OS reduced-motion path shares this same still-view branch and includes pre-hydration CSS; the OS preference itself was not changed or emulated. No physical Android/iOS testing is claimed.
+- The actual-work viewer changed from Stage 1 to Stage 2 with a phone-width horizontal pointer swipe. Native range controls/keyboard endpoints remain functional. The patio range reached 0% and 100%; a direct phone-width drag changed it to 24% existing / 76% proposed. The original reference/rendering pair remains separate from completed work, with its concise unbuilt-work clarification.
+- All five contact destinations are `tel:+61451743037`. No call was placed. Five service categories and one unobtrusive service-image disclosure are present. Wireless setup/device configuration is explicitly separated from fixed wiring, switchboards, hardwired lighting and regulated cabling. No unsupported licence, certification, review, completed project, backend or booking system was introduced.
+- All **69 checked local production resource URLs** returned 200, including **61 WebPs**, fonts, script, stylesheet, social cards, favicon and robots. Assembly alpha was checked at 0–255 with a real transparent background. Originals and PNG masters stay local and Git-ignored. Exact built-in image prompts, saved paths, rejected variants and mask/reproduction details are in `docs/PHOTOGRAPHIC_ASSEMBLY.md`. All required image assets are complete.
+
+Publication verification will be recorded after deployment. Earlier release records follow for history.
+
+---
+
 # Service-led rebalance — 4 November 2026
 
 The latest owner request supersedes earlier concept-heavy page layouts. The full-screen interactive construction opening remains, followed by seven varied service illustrations, one compact real-photo progression, the restored patio comparison, experience/training and direct contact.

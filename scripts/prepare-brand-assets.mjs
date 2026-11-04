@@ -1,0 +1,6 @@
+import sharp from 'sharp'
+import{resolve}from'node:path'
+const output=resolve(import.meta.dirname,'../public/images/og-brindle-v2.jpg')
+const svg=Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect width="1200" height="630" fill="#f4f3ef"/><rect x="70" y="65" width="42" height="7" fill="#d52c27"/><text x="70" y="156" font-family="Arial" font-size="64" font-weight="700" letter-spacing="-3" fill="#191b18">BRINDLE<tspan fill="#d52c27">.</tspan></text><text x="73" y="192" font-family="Arial" font-size="17" letter-spacing="2.3" fill="#191b18">PROPERTY MAINTENANCE &amp; SMART HOME SOLUTIONS</text><text x="70" y="330" font-family="Arial" font-size="87" font-weight="700" letter-spacing="-4" fill="#191b18">Experienced hands.</text><text x="70" y="432" font-family="Arial" font-size="87" font-weight="700" letter-spacing="-4" fill="#d52c27">Smarter possibilities.</text><path d="M70 500h1060" stroke="#cccac3"/><text x="70" y="557" font-family="Arial" font-size="22" fill="#191b18">MELBOURNE &amp; SURROUNDING AREAS</text><text x="870" y="557" font-family="Arial" font-size="27" fill="#d52c27">0451 743 037</text></svg>')
+await sharp(svg).jpeg({quality:90}).toFile(output)
+console.log('Updated BRINDLE social card.')
