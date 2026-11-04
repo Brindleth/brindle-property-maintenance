@@ -14,7 +14,7 @@ Verified for this revision:
 - All **75 local production file URLs**, including **61 metadata-free WebPs**, returned HTTP 200. Original construction photos and generated masters remain untouched locally and excluded from publication. No final image assets are missing; exact edit prompts and saved paths are recorded in docs/PHOTOGRAPHIC_ASSEMBLY.md.
 - Reduced-motion visitors receive the finished still view. Browser emulation does not expose the OS preference control, so this preference path was reviewed in source; no physical-device or OS-setting test is claimed.
 
-Deployment verification follows after the application commit is published.
+Published application commit: **df329cc69129bc44b25757e027213ccd9ec0a5f0**. [GitHub Actions build and deployment 41819596782](https://github.com/Brindleth/brindle-property-maintenance/actions/runs/41819596782) completed successfully. The live [existing Pages site](https://brindleth.github.io/brindle-property-maintenance/) serves the exact new application bundle, lowercase wordmark, automatic loop control and clean-batten assets. All **73 public page/resource URLs** checked returned HTTP 200 (the two build-only dotfile markers are not public resources). The published desktop loop reached the complete cladding stage at 100% with zero visible clip sprites and scrollY zero. Live 375 × 812 mobile verification found no overflow, the correct five telephone destinations and no warning/error logs. Desktop and mobile screenshots are saved locally at test-results/brindle-loop-live-desktop.jpg and test-results/brindle-loop-live-mobile.jpg. The loop was resumed and temporary viewport overrides cleared after verification.
 
 ---
 
@@ -34,7 +34,7 @@ Verified locally for this revision:
 - All five contact destinations are `tel:+61451743037`. No call was placed. Five service categories and one unobtrusive service-image disclosure are present. Wireless setup/device configuration is explicitly separated from fixed wiring, switchboards, hardwired lighting and regulated cabling. No unsupported licence, certification, review, completed project, backend or booking system was introduced.
 - All **69 checked local production resource URLs** returned 200, including **61 WebPs**, fonts, script, stylesheet, social cards, favicon and robots. Assembly alpha was checked at 0–255 with a real transparent background. Originals and PNG masters stay local and Git-ignored. Exact built-in image prompts, saved paths, rejected variants and mask/reproduction details are in `docs/PHOTOGRAPHIC_ASSEMBLY.md`. All required image assets are complete.
 
-Publication verification will be recorded after deployment. Earlier release records follow for history.
+The earlier photographic application commit 72fc568 also deployed successfully; the automatic-loop release above supersedes it. Earlier release records follow for history.
 
 ---
 
