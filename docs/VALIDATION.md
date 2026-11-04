@@ -14,7 +14,9 @@ Verified for this revision:
 - All five rendered telephone anchors use `tel:+61451743037`. No call was placed. No backend, database, booking service, external image host or production generation API was added.
 - All 45 responsive WebPs are local; source metadata is removed. Original photographs and PNG masters stay preserved locally and are excluded from GitHub Pages. Lazy service imagery and on-demand, capped-DPR 3D rendering remain in place.
 
-Publication verification follows after deployment. Earlier release records are retained below for history.
+Published at https://brindleth.github.io/brindle-property-maintenance/. Application commit `0433525e890633075604e27d79a6d2323da3df81`; [GitHub Actions run 41749724092](https://github.com/Brindleth/brindle-property-maintenance/actions/runs/41749724092) completed successfully, including lint, all 13 tests, production build and deployment. The public page returned 200. All **55 checked public resource URLs returned 200**, including all 45 WebPs, fonts, scripts, styles, favicon, robots and social image. Live browser checks confirmed the loaded 3D canvas, seven loaded service illustrations, correct services anchor offset, Stage 4 selection and the patio comparison at 0%. All five telephone destinations are correct. Final published screenshot: `test-results/brindle-services-live.jpg`; resource report: `test-results/service-rebalance-http.json` (both local, excluded from Git).
+
+Responsive and pointer checks above were completed successfully against the local application/production preview. A later attempt to repeat the phone viewport on the public origin was limited by a stalled browser viewport connection to an obsolete diagnostic tab; it was not a website runtime error. Physical phone testing was not performed. Earlier release records are retained below for history.
 
 ---
 
