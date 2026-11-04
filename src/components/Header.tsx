@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { business } from '../config/business'
 import { Arrow, Brand } from './Icons'
 
-const links = [['#work', 'Portfolio'], ['#about', 'Services'], ['#concept', 'Patio concept'], ['#inspiration', 'Inspiration'], ['#contact', 'Contact']] as const
+const links = [['#services', 'Services'], ['#work', 'Actual work'], ['#concept', 'Outdoor'], ['#experience', 'Experience'], ['#contact', 'Contact']] as const
 
 export default function Header() {
   const [open, setOpen] = useState(false)

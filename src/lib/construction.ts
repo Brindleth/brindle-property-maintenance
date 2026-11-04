@@ -2,7 +2,7 @@ export const clamp = (value: number, min = 0, max = 1) => Math.min(max, Math.max
 export const smooth = (value: number) => { const p = clamp(value); return p * p * (3 - 2 * p) }
 export const phase = (progress: number, start: number, end: number) => smooth((progress - start) / (end - start))
 export const constructionStages = [
-  { title: 'Good work.\nFrom the\nground up.', label: 'Ground layout', eyebrow: 'EXPERIENCED HANDS. CONSIDERED WORK.', description: 'Independent construction labour and property maintenance. Practical support, from the first set-out to the final detail.' },
+  { title: 'Good work.\nFrom the\nground up.', label: 'Ground layout', eyebrow: 'EXPERIENCED HANDS. CONSIDERED WORK.', description: 'Construction support, property maintenance and bespoke finishes. Over 20 years of practical experience, from framing to fit-out.' },
   { title: 'A solid\nframework.', label: 'Steel framing', eyebrow: '01 / THE FRAMEWORK', description: 'Steel framing support. A clear plan, careful handling and hands-on experience where it counts.' },
   { title: 'Strength in\nthe details.', label: 'Timber noggins', eyebrow: '02 / THE CONNECTIONS', description: 'Timber noggins, clips and the connections that bring the frame together. Working to supplied project instructions.' },
   { title: 'Layer by\nlayer.', label: 'Wrap & battens', eyebrow: '03 / THE ENVELOPE', description: 'Building wrap, clips and battens. Practical construction support through each layer of the build.' },

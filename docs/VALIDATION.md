@@ -1,3 +1,23 @@
+# Service-led rebalance — 4 November 2026
+
+The latest owner request supersedes earlier concept-heavy page layouts. The full-screen interactive construction opening remains, followed by seven varied service illustrations, one compact real-photo progression, the restored patio comparison, experience/training and direct contact.
+
+Verified for this revision:
+
+- TypeScript, ESLint, all **13 regression tests**, production build, static prerender and build-output validation pass. The exact `/brindle-property-maintenance/` production base was built and opened locally.
+- Seven photorealistic service illustrations cover timber/steel framing support, partitions/fit-outs, feature walls, external finishes, painting/maintenance, outdoor spaces and low-voltage lighting/concealed AV. One discreet service-image disclosure replaces prominent AI/concept badges. Exact new prompts, tool mode and saved paths are in `docs/SERVICE_REBALANCE_ASSETS.md`. No final image assets are missing.
+- The four genuine-photo stages remain accurate to the supplied photographs. Early fixings are acknowledged, the small-window view is described as preparation, and upper exposed wrap is not called a completed facade. Different viewpoints are stated. Optional framing stays within the same project; no actual project image is repeated in experience or services.
+- Desktop project arrows, native range Home/End and a narrow-phone pointer swipe work. The project viewer is compact, with all source photographs fully visible.
+- The patio comparison uses original reference `1000020835.jpg` and its corresponding edited proposal. Direct dragging changed the split from 50% to 77%; Home/End reached 0% and 100% clipping, with keyboard increments confirmed on the phone layout. The interface explicitly identifies an unbuilt design visualisation and does not claim the existing patio/lights as Brindle work.
+- Browser viewport checks at approximately **1440 × 900**, **768 × 1024**, **375 × 812** and **320 × 568** show no horizontal document overflow. Responsive service images, compact stage controls, patio range, mobile navigation and persistent call bar remain usable. The production subpath restores `#services` at the correct offset after hydration.
+- The loaded 3D canvas, sixth stage shortcut, rotate control, static fallback removing the canvas, and re-enabling 3D were exercised. No application warning or error was observed from the checked local origins. The pre-existing missing-WebGL/reduced-motion fallback paths remain implemented; no physical-device or hardware-failure claim is made.
+- All five rendered telephone anchors use `tel:+61451743037`. No call was placed. No backend, database, booking service, external image host or production generation API was added.
+- All 45 responsive WebPs are local; source metadata is removed. Original photographs and PNG masters stay preserved locally and are excluded from GitHub Pages. Lazy service imagery and on-demand, capped-DPR 3D rendering remain in place.
+
+Publication verification follows after deployment. Earlier release records are retained below for history.
+
+---
+
 # Construction-stage slider refinement — 3 November 2026
 
 The owner's refinement keeps the existing identity and construction renderer while replacing the project grid with a minimal four-stage viewer. The full-screen construction sequence now opens the site, with direct access to the actual project. One retained patio visualisation replaces the previous comparison and reference gallery. Three newly generated architectural images appear only in Design Inspiration & Capabilities, with an explicit AI disclosure and per-image labels.

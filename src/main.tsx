@@ -6,6 +6,7 @@ import './refinements.css'
 import './portfolio-first.css'
 import './patio-concept.css'
 import './stage-refinement.css'
+import './service-balance.css'
 
 const root = document.getElementById('root')!
 const app = <React.StrictMode><App /></React.StrictMode>

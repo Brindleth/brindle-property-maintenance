@@ -84,7 +84,7 @@ export default function ConstructionExperience({ onExit }: { onExit?: () => void
 
   return <section ref={section} className={`construction-experience ${simple ? 'simple-experience' : ''} ${onExit ? '' : 'construction-home'} ${webgl === undefined ? 'scene-pending' : ''}`} id={onExit ? 'construction-story' : 'top'} aria-label="Interactive construction story">
     <div className="construction-sticky">
-      <div className="hero-meta"><span><i className="status-dot" />INDEPENDENT CONSTRUCTION SUPPORT</span><span>{business.serviceArea}</span></div>
+      <div className="hero-meta"><span><i className="status-dot" />CONSTRUCTION &amp; PROPERTY MAINTENANCE</span><span>{business.serviceArea}</span></div>
       <div className="scene-stage" aria-label={simple ? 'Static architectural illustration' : 'Interactive 3D construction assembly'}>
         {simple ? <StaticConstruction /> : <SceneBoundary onError={reportFailure}><Suspense fallback={<StaticConstruction />}><ConstructionScene progress={progress} mobile={mobile} angle={angle} onReady={ready} onFailure={reportFailure} /></Suspense></SceneBoundary>}
         <div className="model-coordinate" aria-hidden="true"><span>BR / 001</span><span>RESIDENTIAL WALL STUDY</span></div>
@@ -97,7 +97,7 @@ export default function ConstructionExperience({ onExit }: { onExit?: () => void
         <a className="text-call" href={business.telephone}><span>Let’s talk about your project<strong>{business.phone}</strong></span><Arrow diagonal /></a>
       </div>
       <div className="hero-bottom">
-        <a className="scroll-cue" href="#work"><span className="scroll-circle"><Arrow /></span><span>SEE THE REAL WORK<small>Explore the construction photographs.</small></span></a>
+        <a className="scroll-cue" href="#services"><span className="scroll-circle"><Arrow /></span><span>EXPLORE THE SERVICES<small>Practical skills. Bespoke details.</small></span></a>
         <div className="scene-controls">{!simple && <button onClick={() => setAngle((a) => (a + 1) % 3)} aria-label="Rotate the 3D construction model to the next viewpoint">↻ <span>Rotate view</span></button>}{webgl && !reducedMotion && !failed && <button aria-pressed={staticMode} onClick={toggleStaticView}>{staticMode ? 'Enable 3D' : 'Static view'}</button>}</div>
         <span className="hero-experience"><strong>20<span>+</span></strong><span>YEARS OF PRACTICAL<br />LABOURING EXPERIENCE</span></span>
       </div>

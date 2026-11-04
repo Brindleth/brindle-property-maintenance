@@ -10,8 +10,8 @@ export default function Portfolio() {
   const photo = projectStages[stage]
   function move(direction: number) { setStage(current => nextProjectStage(current, direction)) }
   return <section id="work" className="portfolio-section project-section section-pad" aria-labelledby="project-title">
-    <div className="section-topline"><span className="eyebrow">01 / ACTUAL PROJECT</span><span className="eyebrow subtle">RESIDENTIAL CONSTRUCTION SUPPORT</span></div>
-    <div className="project-heading"><h2 id="project-title">The work.<br /><span className="muted">Layer by layer.</span></h2><p>From the early exterior to cladding around the window. Actual photographs of hands-on work.</p></div>
+    <div className="section-topline"><span className="eyebrow">02 / ACTUAL WORK</span><span className="eyebrow subtle">RESIDENTIAL CONSTRUCTION SUPPORT</span></div>
+    <div className="project-heading"><h2 id="project-title">On site.<br /><span className="muted">In detail.</span></h2><p>One residential project, shown through actual site photographs.</p></div>
     <div className="project-slider" role="region" aria-roledescription="carousel" aria-label="Genuine construction project progression">
       <div className="project-screen" tabIndex={0} aria-label="Construction photographs. Swipe horizontally or use left and right arrow keys."
         onKeyDown={event => { if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') { event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1) }; if (event.key === 'Home' || event.key === 'End') { event.preventDefault(); setStage(event.key === 'Home' ? 0 : 3) } }}
@@ -33,8 +33,8 @@ export default function Portfolio() {
         <div className="project-stage-labels">{projectStages.map((item, index) => <button key={item.id} onClick={() => setStage(index)} aria-label={`Show stage ${index + 1}: ${item.name}`} aria-current={stage === index ? 'step' : undefined}><span>0{index + 1}</span>{item.short}</button>)}</div>
       </div>
     </div>
-    <p className="project-photo-note">Different viewpoints of the same project. Stage 3 is a window detail, not a separately verified finishing phase.</p>
+    <p className="project-photo-note">Different viewpoints. The window detail shows preparation before cladding.</p>
     <details className="project-detail"><summary>Inside the frame <span aria-hidden="true">+</span></summary><figure><img src={asset(`images/${framingDetail.id}-960.webp`)} alt={framingDetail.alt} width="1200" height="1600" loading="lazy" /><figcaption>{framingDetail.caption}</figcaption></figure></details>
-    <p className="project-credit">Construction support using customer-supplied materials and instructions. Photographs supplied with permission. Design and certification are not claimed.</p>
+    <p className="project-credit">Construction support to supplied materials and instructions. Photographs used with permission. Design and certification are not claimed.</p>
   </section>
 }

@@ -1,6 +1,6 @@
 # Brindle Property Maintenance
 
-The existing Brindle website, refined with a full-screen interactive Three.js / React Three Fiber opening, a four-stage real-photo project viewer and clearly separated AI design inspiration. No backend, database, forms, booking system, tracking, paid service, external font host or API key is required. All contact links use **0451 743 037** (`tel:+61451743037`).
+The existing Brindle website, refined with a full-screen interactive Three.js / React Three Fiber opening, a varied service showcase, one compact real-photo project viewer and a patio before-and-after comparison. No backend, database, forms, booking system, tracking, paid service, external font host or API key is required. All contact links use **0451 743 037** (`tel:+61451743037`).
 
 Publication URL: [Brindle Property Maintenance](https://brindleth.github.io/brindle-property-maintenance/). Source: [Brindleth/brindle-property-maintenance](https://github.com/Brindleth/brindle-property-maintenance). See the validation record for deployment status.
 
@@ -20,31 +20,31 @@ npm.cmd run check
 npm.cmd run preview
 ```
 
-`check` runs TypeScript, ESLint, eleven regression tests and the verified production build. `preview` serves `dist/` at `http://127.0.0.1:4173/` for local verification. `npm ci` reproduces the locked dependencies.
+`check` runs TypeScript, ESLint, thirteen regression tests and the verified production build. `preview` serves `dist/` at `http://127.0.0.1:4173/` for local verification. `npm ci` reproduces the locked dependencies.
 
 ## Included experience
 
-- The existing full-screen construction scene opens the site. Six reversible scroll stages, stage shortcuts, model rotation, static mode and persistent phone access retain the white/black/red identity. The real-work link jumps directly to the photographs.
-- One cinematic four-stage project viewer replaces the six-photo grid. Native draggable range control, arrows, horizontal pointer swipes, keyboard shortcuts and reduced-motion crossfades. Portrait originals remain fully visible against an ambient backdrop.
+- The existing full-screen construction scene opens the site. Six reversible scroll stages, stage shortcuts, model rotation, static mode and persistent phone access retain the white/black/red identity. Direct Services and Actual work links bypass the scroll sequence.
+- Services lead the page after the opening: timber/steel framing support, partitions and fit-outs, feature walls, cladding, painting/maintenance, outdoor spaces, and low-voltage lighting/concealed AV. Seven realistic service illustrations share one unobtrusive disclosure. Assistance and agreed-scope wording avoid implying unheld trade authorisations.
+- One compact four-stage project viewer keeps the actual photographs together. Native draggable range control, arrows, horizontal pointer swipes, keyboard shortcuts and reduced-motion crossfades. Portrait originals remain fully visible against an ambient backdrop.
 - Photo mapping: 1000020847 early wrapped exterior with initial fixings; 1000020945 wrap/clips/battens; 1000020946 small-window perimeter detail before cladding; 1000020958 horizontal cladding around the large window with upper wrap still exposed. Different viewpoints are stated explicitly. The optional steel-framing/noggins photo is under Inside the frame.
-- One photo-based Perth patio visualisation, labelled **Concept Visualisation — Not Constructed**. No comparison or reference-photo gallery. Existing patio and lights are not claimed as Brindle work.
-- **Design Inspiration & Capabilities** contains three photorealistic AI examples: feature wall/concealed AV/low-voltage LED ideas, outdoor entertainment, and cladding/architectural finishes. Clear disclosure and per-image labels. No regulated installation service is advertised.
+- The restored patio comparison pairs the original Perth reference with its corresponding proposed finish. Direct image dragging and an accessible native range control reveal either image fully. **Outdoor Transformation — Design Visualisation** and a short unbuilt-work clarification identify the proposal. No separate gallery or prominent concept badge remains.
 - Build-time prerendered copy and photographs remain available before JavaScript. Client hydration starts the lazy WebGL renderer with a static fallback; reduced motion, missing WebGL and context loss retain the readable page. Local fonts, responsive images and on-demand rendering remain in place.
 - Shorter services copy, actual training records, rates by phone, copy-number control, responsive navigation and an accessible mobile call bar. Frontend only.
 
 ## Edit business details
 
-Edit `src/config/business.ts` for the phone, Melbourne service area, services, rate wording, availability and training. Rates deliberately say **Rates discussed by phone**; no unapproved hourly price is published. If changing service area, also update the SEO description in `index.html` and social card in `scripts/prepare-assets.mjs`.
+Edit `src/config/business.ts` for the phone, Melbourne service area, rate wording, availability and training. The current service showcase is in `src/data/capabilities.ts`. Rates deliberately say **Rates discussed by phone**; no unapproved hourly price is published. If changing service area, also update the SEO description in `index.html` and social card in `scripts/prepare-assets.mjs`.
 
-Stage mapping and truthful captions are in `src/data/projectStages.ts`. The viewer is in `src/components/Portfolio.tsx`; the opening is in `src/components/ConstructionExperience.tsx`; page order is in `src/App.tsx`. Construction timing is in `src/lib/construction.ts`; geometry is in `src/components/ConstructionScene.tsx`. The latest layout rules are in `src/stage-refinement.css` and `src/patio-concept.css`.
+Stage mapping and truthful captions are in `src/data/projectStages.ts`. The viewer is in `src/components/Portfolio.tsx`; the opening is in `src/components/ConstructionExperience.tsx`; page order is in `src/App.tsx`. Construction timing is in `src/lib/construction.ts`; geometry is in `src/components/ConstructionScene.tsx`. The latest layout rules are in `src/service-balance.css` and `src/patio-concept.css`.
 
 The project role remains construction support using supplied materials and instructions. Do not add a home address, invented projects, testimonials, licences or certification claims.
 
 ## Supplied photographs and generated assets
 
-All six construction-photo originals and their 18 metadata-free derivatives remain preserved. Four verified views are used in the main stage viewer; the steel-framing view is optional and also appears with training. The alternate small-window photograph remains available locally without adding another main stage.
+All six construction-photo originals and their 18 metadata-free derivatives remain preserved. Four verified views are used in the main stage viewer; the steel-framing view is optional within that same project section. The alternate small-window photograph remains available without adding another main stage. Actual project photographs are not repeated elsewhere on the page.
 
-The five original patio references remain local, separate from completed work. Only the single generated patio proposal is published at three responsive widths. Three new inspiration images have nine responsive WebP derivatives. Generated PNG masters and original JPGs are Git-ignored and excluded from deployment; committed derivatives make a fresh clone buildable without generation tools.
+The five original patio references remain preserved locally. One reference and its corresponding proposed rendering are published as six responsive WebPs. Seven service illustrations have 21 responsive WebP derivatives. Together with the 18 construction assets, the site ships 45 optimized WebPs. Generated PNG masters and original JPGs are Git-ignored and excluded from deployment; committed derivatives make a fresh clone buildable without generation tools.
 
 To regenerate assets when the preserved source files are available:
 
@@ -55,7 +55,7 @@ npm.cmd run assets:inspiration
 npm.cmd run check
 ```
 
-Exact built-in prompts and source/output paths: `docs/CONCEPT_VISUALISATION.md` (patio) and `docs/INSPIRATION_ASSETS.md` (capabilities). No image-generation service runs on the published site.
+Latest exact built-in prompts and source/output paths: `docs/SERVICE_REBALANCE_ASSETS.md`. Earlier retained image provenance is in `docs/CONCEPT_VISUALISATION.md` and `docs/INSPIRATION_ASSETS.md`. No image-generation service runs on the published site. No final image assets remain missing.
 
 The four original brief documents remain unchanged. The original handoff README is preserved in `docs/ORIGINAL_HANDOFF.md`; `docs/FUTURE_SCOPE.md` preserves future plans without adding a backend.
 
