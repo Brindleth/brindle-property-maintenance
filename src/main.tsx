@@ -7,7 +7,8 @@ import './portfolio-first.css'
 import './patio-concept.css'
 import './stage-refinement.css'
 import './service-balance.css'
-import './photo-story.css'
+import './identity.css'
+import './cladding-revision.css'
 
 const root = document.getElementById('root')!
 const app = <React.StrictMode><App /></React.StrictMode>

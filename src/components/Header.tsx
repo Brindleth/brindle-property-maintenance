@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { business } from '../config/business'
 import { Arrow, Brand } from './Icons'
 
-const links = [['#services', 'Services'], ['#smart-home', 'Smart home'], ['#work', 'Actual work'], ['#concept', 'Outdoor'], ['#experience', 'Experience'], ['#contact', 'Contact']] as const
+const links = [['#services', 'Cladding'], ['#construction', 'Construction'], ['#concept', 'Transformations'], ['#smart-home', 'Smart home'], ['#work', 'Genuine work'], ['#contact', 'Contact']] as const
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -40,7 +40,7 @@ export default function Header() {
     <button ref={menuButton} className="menu-button" aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Close navigation' : 'Open navigation'} onClick={() => setOpen(!open)}><span /><span /></button>
     {open && <div className="mobile-menu" id="mobile-menu" ref={menu}>
       <span className="eyebrow">GOOD WORK STARTS HERE.</span>
-      <nav aria-label="Mobile navigation">{links.map(([href, text], i) => <a key={href} href={href} onClick={followLink}><sup>0{i + 1}</sup>{text}<Arrow diagonal /></a>)}<a href="#top" onClick={followLink}><sup>07</sup>Watch the build<Arrow diagonal /></a></nav>
+      <nav aria-label="Mobile navigation">{links.map(([href, text], i) => <a key={href} href={href} onClick={followLink}><sup>0{i + 1}</sup>{text}<Arrow diagonal /></a>)}<a href="#top" onClick={followLink}><sup>07</sup>Back to the top<Arrow diagonal /></a></nav>
       <a className="mobile-menu-call" href={business.telephone}>Let’s talk.<br />{business.phone}<Arrow diagonal /></a>
       <p>{business.serviceArea}</p>
     </div>}

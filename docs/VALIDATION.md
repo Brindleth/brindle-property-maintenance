@@ -1,3 +1,22 @@
+# Cladding-focused revision / three comparisons — 5 November 2026
+
+The latest owner brief and explicit three-comparison limit supersede the historical wall-animation releases below. The site now leads with a photographic completion of original cladding image 1000020958, followed by three shared-component comparisons: exterior cladding, the retained patio pair, and a feature-wall/entertainment fit-out. The wall assembly, loop, controls, source geometry and publication assets are removed entirely.
+
+Verified locally:
+
+- TypeScript, ESLint, **13 regression tests**, production build, prerender and static output validation pass at the exact GitHub Pages base. The final application bundle is approximately **77.6 kB gzip**. One H1, the intended section order, exactly three comparison figures, separate framing images, genuine-photo viewer, scoped services and honest provenance are verified in build output.
+- All three comparisons accept Home = 0, End = 100 and ArrowLeft = 99. Native image drags on the 375 × 812 layout moved each divider to 20%. Changing cladding to 0 left patio and feature at 20%, confirming independent controls. Shared pointer capture, cancellation and pan-y touch behavior remain implemented; no physical touchscreen claim is made.
+- The original patio reference and proposed rendering remain unchanged, with the previous crop/position retained. The cladding pair uses the actual 1000020958 view and an upper-wall finish visualisation. The feature-wall pair retains the same room, furniture, floor and viewpoint. Original work is never replaced with an edited image in the genuine-photo viewer.
+- Layouts at approximately **1440 × 900, 768 × 1024, 375 × 812 and 320 × 568** have no horizontal overflow. The short-phone hero keeps the headline, call CTA and digital-visualisation disclosure readable. Tablet construction imagery shows timber-only and steel-only photographs separately. Mobile navigation closes after following a link.
+- The original-photo viewer's End key selects stage 4, Next wraps to stage 1 and a native horizontal swipe advances to stage 2. All **six telephone anchors** use tel:+61451743037; no calls were placed. No contact form, booking system, backend, database or canvas exists.
+- The first preview process was restarted with BASE_PATH set explicitly after an incorrect preview base served HTML for asset URLs. The corrected production preview subsequently returned **all 58 public files byte-for-byte identical to dist**, including **45 WebPs**. No loaded broken images or application warning/error logs were observed in the corrected session.
+- Only the hero loads eagerly; below-fold images are lazy-loaded. All new assets have metadata-free 480/960/1440 derivatives, and the cladding-original srcset descriptor matches its actual 1152-pixel maximum. The hero's one four-second image settle is disabled by prefers-reduced-motion; the OS preference path was reviewed in source because this browser does not expose OS emulation. No physical Android/iOS or OS-setting test is claimed.
+- The six original construction JPGs are preserved locally and excluded from deployment. All image assets are complete. Exact built-in image prompts and saved master/output paths are in docs/CLADDING_REVISION_ASSETS.md. README documents how future genuine job pairs can replace illustrations without changing the frontend architecture.
+
+Publication verification will be added after deployment.
+
+---
+
 # Automatic build loop and restored wordmark — 4 November 2026
 
 The owner's latest correction restores the lowercase **brindle.** visual wordmark and replaces the long scroll sequence with one full-screen automatic photographic build loop. It supersedes the scroll-specific verification in the historical record below.

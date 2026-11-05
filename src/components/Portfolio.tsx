@@ -10,7 +10,7 @@ export default function Portfolio() {
   const photo = projectStages[stage]
   function move(direction: number) { setStage(current => nextProjectStage(current, direction)) }
   return <section id="work" className="portfolio-section project-section section-pad" aria-labelledby="project-title">
-    <div className="section-topline"><span className="eyebrow">02 / ACTUAL WORK</span><span className="eyebrow subtle">RESIDENTIAL CONSTRUCTION SUPPORT</span></div>
+    <div className="section-topline"><span className="eyebrow">07 / GENUINE WORK</span><span className="eyebrow subtle">ORIGINAL SITE PHOTOGRAPHS</span></div>
     <div className="project-heading"><h2 id="project-title">On site.<br /><span className="muted">In detail.</span></h2><p>Hands-on construction support, documented in original site photographs.</p></div>
     <div className="project-slider" role="region" aria-roledescription="carousel" aria-label="Genuine construction project progression">
       <div className="project-screen" tabIndex={0} aria-label="Construction photographs. Swipe horizontally or use left and right arrow keys."
@@ -20,7 +20,7 @@ export default function Portfolio() {
         onPointerUp={event => { if (!pointer.current) return; const direction = swipeDirection(event.clientX - pointer.current.x, event.clientY - pointer.current.y); pointer.current = null; if (direction) move(direction) }}>
         {projectStages.map((item, index) => <div className={`project-slide ${index === stage ? 'is-current' : ''}`} key={item.id} role="group" aria-roledescription="slide" aria-label={`${index + 1} of 4: ${item.name}`} aria-hidden={index !== stage}>
           <img className="project-ambient" src={asset(`images/${item.id}-960.webp`)} alt="" aria-hidden="true" draggable="false" loading="lazy" />
-          <img className="project-original" src={asset(`images/${item.id}-960.webp`)} srcSet={`${asset(`images/${item.id}-480.webp`)} 480w, ${asset(`images/${item.id}-960.webp`)} 960w, ${asset(`images/${item.id}-1600.webp`)} 1600w`} sizes="(max-width: 760px) 90vw, 52vw" alt={item.alt} width="1200" height="1600" draggable="false" loading={index === 0 ? 'eager' : 'lazy'} />
+          <img className="project-original" src={asset(`images/${item.id}-960.webp`)} srcSet={`${asset(`images/${item.id}-480.webp`)} 480w, ${asset(`images/${item.id}-960.webp`)} 960w, ${asset(`images/${item.id}-1600.webp`)} 1600w`} sizes="(max-width: 760px) 90vw, 52vw" alt={item.alt} width="1200" height="1600" draggable="false" loading="lazy" />
         </div>)}
         <span className="project-image-tag">GENUINE PROJECT PHOTOGRAPH</span><span className="project-count" aria-hidden="true">0{stage + 1} / 04</span>
         <button className="project-arrow project-previous" aria-label="Previous construction stage" onClick={() => move(-1)}><Arrow className="reverse" /></button>

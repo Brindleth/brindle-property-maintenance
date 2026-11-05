@@ -17,7 +17,7 @@
     "build": "npm run typecheck && vite build && node scripts/prerender.mjs && node scripts/verify-build.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "check": "npm run typecheck && npm run lint && npm test && npm run build",
-    "assets:assembly": "node scripts/prepare-assembly-assets.mjs"
+    "assets:revision": "node scripts/prepare-revision-assets.mjs"
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.3.0",
