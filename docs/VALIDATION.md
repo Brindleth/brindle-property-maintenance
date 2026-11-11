@@ -1,3 +1,18 @@
+# GitHub Pages publication — 12 November 2026
+
+Published application commit **631efdcbc8adf9f6cfac74e9c75b4b4fa3175a38** to the [existing GitHub Pages site](https://brindleth.github.io/brindle-property-maintenance/). [GitHub Actions run 43088927245](https://github.com/Brindleth/brindle-property-maintenance/actions/runs/43088927245) completed its build and Pages deployment successfully. Installation, lint, all seven tests and production build passed in the workflow.
+
+- All **47 public file URLs** returned HTTP 200 and matched the local production build, including **36 WebPs**, both fonts, current CSS and JavaScript. Text comparison tolerates CRLF/LF line endings; binary assets match byte-for-byte. Proof: test-results/live-resource-smoke.json.
+- The live browser uses Space Grotesk Variable at heading weight 500, with its font loaded. All six service images loaded successfully. Exactly one range control remains, for the patio.
+- Live **1280 × 720 desktop** and **393 × 873 phone** checks found no horizontal overflow. Phone services use two columns and show the new working-environment images.
+- The published patio's two images loaded. Keyboard End reached 100, Home reached 0 and ArrowLeft changed 100 to 99. Pointer dragging was checked locally before publication as recorded below.
+- Every telephone destination remains tel:+61451743037; no call was placed. No application warning/error logs were observed in the live browser.
+- Live screenshot proof: test-results/brindle-working-services-live.jpg and test-results/brindle-working-services-live-mobile.jpg. These QA artifacts remain ignored.
+
+The local-only status below records the state before this publication and is superseded by this deployment record. Physical-device testing and the other stated audit limitations remain unchanged.
+
+---
+
 # Shorter photographic revision — 12 November 2026
 
 The owner's latest correction restores the original type treatment, keeps **only the patio slider**, shortens the page and replaces staged/showroom service pictures with ordinary working environments. Implemented in the existing repository. **Not committed, pushed or deployed.**
