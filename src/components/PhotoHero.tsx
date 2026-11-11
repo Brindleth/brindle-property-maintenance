@@ -3,11 +3,16 @@ import { asset } from '../data/portfolio'
 import { Arrow } from './Icons'
 
 export default function PhotoHero() {
-  return <section id="top" className="cladding-hero" aria-labelledby="home-title">
-    <img className="cladding-hero-photo" src={asset('images/revision/cladding-finished-1440.webp')} srcSet={[480,960,1440].map(width=>asset('images/revision/cladding-finished-'+width+'.webp')+' '+width+'w').join(', ')} sizes="100vw" alt="The owner’s actual exterior cladding photograph, with the exposed upper section digitally visualised to match the existing finish" width="1152" height="1536" fetchPriority="high" decoding="async"/>
-    <div className="cladding-hero-shade" aria-hidden="true"/>
-    <div className="cladding-hero-meta"><span><i className="status-dot"/>EXTERIOR FINISHING / PRACTICAL EXPERIENCE</span><span>{business.serviceArea}</span></div>
-    <div className="cladding-hero-copy"><p className="eyebrow">BRINDLE</p><h1 id="home-title">Cladding.<br/>Construction.<br/><span>Smart Solutions.</span></h1><p>Practical construction experience, exterior finishing and bespoke property improvements.</p><div className="cladding-hero-actions"><a className="primary-call" href={business.telephone}><span>Call to discuss work<small>{business.phone}</small></span><Arrow diagonal/></a><a href="#services">Explore services<Arrow/></a></div></div>
-    <div className="cladding-hero-bottom"><span>THE EXTERIOR, CONSIDERED.</span><p>Upper wall digitally visualised.<br/>Based on an original site photograph.</p></div>
+  return <section className="hero" id="top" tabIndex={-1} aria-labelledby="home-title">
+    <div className="hero-copy">
+      <p className="eyebrow"><span className="red-line" />MELBOURNE &amp; SURROUNDING AREAS</p>
+      <h1 id="home-title"><span>Property maintenance.</span>{' '}<span>Skilled hands.</span>{' '}<span className="hero-last">Quality results.</span></h1>
+      <p className="hero-description">Repairs, timberwork, installations and skilled labouring. Practical help for your home, property or next project.</p>
+      <div className="hero-actions"><a className="button button-red" href={business.telephone}>GET A QUOTE<Arrow diagonal /></a><a className="button button-outline" href="#services">VIEW SERVICES<Arrow /></a></div>
+      <span className="hero-note">Independent. Hands-on. Straightforward.</span>
+    </div>
+    <figure className="hero-figure">
+      <img className="hero-photo" src={asset('images/1000020958-960.webp')} srcSet={`${asset('images/1000020958-480.webp')} 480w, ${asset('images/1000020958-960.webp')} 960w, ${asset('images/1000020958-1600.webp')} 1152w`} sizes="(max-width: 760px) 100vw, 45vw" alt="Brindle site photograph of cladding and white window trim, with upper wall preparation still visible" width="1152" height="1536" fetchPriority="high" />
+    </figure>
   </section>
 }

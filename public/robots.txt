@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://brindleth.github.io/brindle-property-maintenance/sitemap.xml

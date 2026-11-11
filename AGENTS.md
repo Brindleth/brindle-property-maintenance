@@ -1,3 +1,13 @@
+# Current owner direction — 12 November 2026
+
+The latest owner correction supersedes the older text-heavy layout and zero-slider rule: keep **only the patio comparison**, restore the original Space Grotesk/Manrope styling and 500-weight headings, use a short photograph-led homepage and keep service descriptions/scopes behind native card disclosures. The owner rejected staged/showroom photographs; show believable working environments, unfinished preparation/assembly and use genuine site photographs wherever suitable. Do not add “conceptual art” labels or badges over images. Maintain truthful, discreet image details and the unbuilt-patio caption. Retain broad maintenance/skilled-labour positioning, six services, lower-case brindle. branding, telephone enquiries, inspection-before-quote, disclosed call-out/travel charges and GitHub Pages deployment. Vite now defaults to /brindle-property-maintenance/ consistently for dev/build/preview. See docs/WORKING_IMAGES_REVISION.md and docs/SERVICE_SCOPE_REVIEW.md. Run npm.cmd run check and browser checks; do not claim deployment or physical-device tests without verification.
+
+## Earlier directions (superseded where inconsistent)
+# Current owner direction — 11 November 2026
+
+The owner request in docs/MAINTENANCE_REDESIGN_BRIEF.md supersedes every older visual and positioning instruction below. Use **brindle. / PROPERTY MAINTENANCE & SKILLED LABOUR**. Lead with broad maintenance, repairs and prominent general/skilled labouring. Keep the six service categories, scoped wording, original photography, static gallery, native lightbox, local fonts and telephone-only enquiry path. There are zero comparison or project-stage sliders; the misaligned cladding edit is replaced by original photos. Do not rebuild 3D or an automatic construction loop. See docs/SERVICE_SCOPE_REVIEW.md before expanding service claims. Preserve in-person quotation, disclosed call-out/travel charges, GitHub Pages deployment and the supplied phone. Run npm.cmd run check at the Pages base and report only checks actually performed.
+
+## Historical instructions (superseded where inconsistent)
 # Brindle — Codex build instructions
 
 ## Current owner direction — 5 November 2026

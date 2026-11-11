@@ -1,3 +1,112 @@
+# Shorter photographic revision — 12 November 2026
+
+The owner's latest correction restores the original type treatment, keeps **only the patio slider**, shortens the page and replaces staged/showroom service pictures with ordinary working environments. Implemented in the existing repository. **Not committed, pushed or deployed.**
+
+## Result
+
+- Space Grotesk Variable and Manrope Variable use their original family names. Display headings are restored to weight 500; the lowercase wordmark retains weight 700. Browser font loading and computed heading weight were verified.
+- The page has about **300 visible main-content words** with details closed. Full service descriptions and scope remain available by opening the photograph-led cards. Repetitive Why/featured text sections were removed, and the process is three short steps.
+- Six service photographs: four new work-in-progress examples, plus genuine supplied labouring and exterior images. No polished showroom service scenes remain in production.
+- All six original site views appear once each in the initial page; the gallery lightbox can browse all six. Original work and service examples remain distinct.
+- The original patio reference/rendering pair is retained unchanged. It is the **only** range/comparison control. No cladding or feature-wall slider, project-stage range, prominent concept badge or “conceptual art” label remains.
+- Generated-image details are in a discreet linked footer disclosure. The patio caption identifies its unbuilt enclosure.
+- Telephone enquiries, in-person quotation, task/legal scope checks and disclosed call-out/travel charges are retained. No booking/form/payment workflow or private address was added.
+
+## Image loading issue reproduced and fixed
+
+Before the fix, the previous build's /brindle-property-maintenance/ image and script requests returned **text/html** when npm.cmd run preview was started without BASE_PATH: the preview default was ./ while the build used the repository path.
+
+Vite now uses /brindle-property-maintenance/ consistently by default for dev, build and preview. With no separate environment setting, root navigation redirects to the correct path and image/script/font URLs return their actual content. The existing GitHub Pages workflow can still supply its base override.
+
+## Checks actually performed
+
+- **npm.cmd run check** passed: TypeScript, ESLint (no warnings), all **7 tests**, production build, static prerender and output validation. Final CSS/navigation adjustments were followed by another successful production build and output validation.
+- **47 production files** returned HTTP 200 and matched dist byte-for-byte through the repository path, including **36 WebPs**, both local fonts and the current CSS/JavaScript. Machine-readable proof: test-results/resource-smoke.json.
+- Browser layout inspection at approximately **1439 × 900 desktop**, **768 × 1024 tablet**, **393 × 873 phone** and **320 × 568 narrow phone**. No horizontal document or main/footer-element overflow was found. Services use three columns on desktop and two on tablet/phone.
+- All twelve initial page images loaded, including all six service cards. Responsive width descriptors and metadata-free derivatives are validated in the build/tests.
+- The genuine supplied photo files and the old patio pair remain unchanged. Four new selected masters are preserved under references/service-refresh-2026/; twelve optimized WebPs are in public/images/services/. Exact built-in prompts and paths are in docs/WORKING_IMAGES_REVISION.md.
+- Patio starts at 50%. Desktop pointer dragging moved it to 22%; phone-width dragging moved it to 30%, with the page's vertical scroll position unchanged. Home/End reached 0/100%, and ArrowLeft changed 100 to 99. Both images share identical container sizing/object positioning and only the upper image is clipped. The keyboard range's focus position is centred in the image frame.
+- Phone menu opens, makes the background inert and locks its scroll. Shift+Tab returns from the first menu link to the close button. Following Patio closes the menu, restores the background and focuses the target section.
+- Service details open by keyboard at 320px without overflow. Gallery opens, Escape closes it and focus returns to the original photo link.
+- Contact copying returned “Ready to paste.” All twelve telephone destinations point to tel:+61451743037; no call was placed.
+- Image-details link opens the actual AI/original-photo disclosure. No application warning/error console logs were observed in the final browser session.
+- Temporary viewport overrides were reset. Local proof screenshots: test-results/brindle-simple-desktop.jpg, test-results/brindle-working-services-mobile.jpg and test-results/brindle-patio-mobile.jpg.
+- Current bundle: JavaScript approximately **77.29 kB gzip**; CSS **4.90 kB gzip**. No new runtime dependency.
+
+## Changed files for this correction
+
+- Page, hero and original gallery: src/App.tsx; src/components/PhotoHero.tsx; src/components/Portfolio.tsx.
+- New visual services and single patio: src/components/Services.tsx; src/components/PatioComparison.tsx; src/data/serviceImages.ts; src/lib/patioComparison.ts.
+- Original typography/responsive layout: src/maintenance.css; navigation: src/data/navigation.ts.
+- Consistent local/Pages base: vite.config.ts.
+- Image optimization: scripts/prepare-service-images.mjs and package.json assets:services command; 12 new public/images/services/ WebPs.
+- Validation: scripts/verify-build.mjs and tests/visualServices.test.mjs.
+- Documentation: README.md, AGENTS.md, docs/WORKING_IMAGES_REVISION.md, docs/SERVICE_SCOPE_REVIEW.md and this dated record.
+
+Physical Android/Nothing Phone testing, physical touch hardware, OS reduced-motion emulation, screen-reader testing and a full WCAG/Lighthouse audit were not performed. Viewport/pointer/keyboard checks are not claimed as physical-device certification. No live GitHub Pages deployment of this revision was attempted.
+
+---
+
+# Earlier verification records — superseded where noted
+# Maintenance & skilled labour redesign — 11 November 2026
+
+Implemented locally in the existing React / TypeScript / Vite repository. **This revision has not been committed, pushed or deployed.** The GitHub Pages workflow and repository base-path support are preserved; historical deployment records below describe older versions only.
+
+## Delivered
+
+- New maintenance/skilled-labour identity, photographic hero and requested headline.
+- Six scoped service categories, with general/skilled labouring highlighted. Native disclosures show examples and limits.
+- About, original-photo gallery and native lightbox, featured preparation detail, Why Brindle, three-step quotation process and telephone contact.
+- Sticky responsive header, keyboard-managed mobile navigation, footer navigation, service terms and privacy content.
+- New title, description, Open Graph/social card, service structured data, sitemap and robots reference.
+- Zero comparison sliders or project-stage ranges. No prominent concept badges or AI/edited photographs in the published homepage.
+- All six genuine site views used once each. They document one residential construction-support project, including work in progress.
+- Existing phone, rates-by-discussion, inspection-before-quote and disclosed call-out/travel terms retained. No invented form, booking system, email, address or prices.
+
+## Checks actually performed
+
+- **npm.cmd run check**, with BASE_PATH=/brindle-property-maintenance/: TypeScript, ESLint (no warnings), all **4** asset/content tests, Vite production build, static prerender and output assertions passed.
+- Production output checks validate one H1, ordered sections, six services, unique IDs and anchor targets, correct telephone destinations, local resource existence, six unique original photographs, accurate responsive widths, EXIF removal, structured data, no sliders/forms/canvas and no retired branding.
+- All **29 production files** served HTTP 200 and matched the actual dist bytes through the repository base path. JavaScript, CSS, fonts, JPEG, WebP, HTML, SVG, robots and sitemap content types were checked. Machine-readable result: test-results/resource-smoke.json.
+- Browser layout/overflow inspection at effective CSS viewports approximately **1439 × 900**, **768 × 1024**, **375 × 812**, **320 × 568**, and **393 × 873**. No horizontal document overflow or overflowing main/footer elements were found. Tablet uses two service columns, desktop three and phones one.
+- All six service disclosures open using the keyboard and fit at 320px. The labouring card is visibly highlighted.
+- Mobile menu opens/closes, inerts the background and locks background scrolling. Shift+Tab and Tab loop through menu controls, Escape closes it, and following a link closes it and focuses the requested section. Scroll locking is restored on close.
+- Settled Services and Process anchors were measured at about 100px below the viewport top on mobile, clearing the 80px sticky header.
+- Gallery opens on desktop and phone. Next/previous buttons, Arrow keys, Escape, explicit close, body-scroll restoration and return focus to the original gallery link passed. The phone dialog stays within the viewport and its original image loads.
+- Phone links all point to tel:+61451743037; no telephone call was placed. Copy-number button reported success. Privacy link expands its actual content.
+- All six original page images loaded successfully after navigation. No application warning/error console entries were observed.
+- Foreground/background contrast calculations: #626262 on #F5F5F3 **5.59:1**, white on #D62828 **5.01:1**, #C7C7C1 on #171717 **10.56:1**, #A9A9A3 on #171717 **7.59:1**. Contact-section keyboard outlines use white. Native controls, labels, semantic structure, focus handling and reduced-motion CSS were reviewed.
+- Current JavaScript bundle: approximately **77.62 kB gzip**; CSS **5.53 kB gzip**, with local fonts. No new runtime dependency was introduced.
+
+## Remaining limits and asset notes
+
+No physical Nothing Phone, Android/iOS device, screen-reader session, Lighthouse run or full WCAG 2.2 AA audit was performed. Browser checks used viewport emulation and pointer/keyboard controls, not physical touch hardware. OS reduced-motion preferences and JavaScript-disabled navigation were inspected in source/prerendered output, not toggled in the browser.
+
+The mismatched cladding pair is **replaced**, not claimed repaired. Zero comparison controls remain, so alignment, slider dragging and slider keyboard tests are not applicable. A future comparison requires a reliably registered same-camera original/finish pair.
+
+Only construction-support photographs were supplied. Genuine maintenance, furniture/joinery, painting and installation project photos would improve category coverage; service icons are used until those exist. Old illustrative images remain in source for historical reproduction, but the production verifier removes them from dist.
+
+Service claims were limited following current Victorian and South Australian official sources. Tasks and lawful working arrangements still require review before acceptance; no licence status is invented. Review docs/SERVICE_SCOPE_REVIEW.md, particularly fixed joinery, mounting, building alterations, independent cladding and SA subcontracting.
+
+## Changed files
+
+| Area | Files |
+| --- | --- |
+| Page and content | src/App.tsx; src/config/business.ts; src/data/services.ts; new src/data/navigation.ts |
+| Components | src/components/Header.tsx; Icons.tsx; PhotoHero.tsx; Portfolio.tsx |
+| Styling | new src/maintenance.css; src/main.tsx; eight superseded CSS files removed |
+| Search/social | index.html; public/robots.txt; new public/sitemap.xml; new public/images/og-brindle-v5.jpg; scripts/prepare-brand-assets.mjs |
+| Validation | scripts/verify-build.mjs; tests/assets.test.mjs; retired comparison/stage tests removed |
+| Retired implementation | Capabilities.tsx, FeatureFitout.tsx, ImageComparison.tsx, PatioConcept.tsx; obsolete comparison/stage data and helper modules; unused useMedia hook |
+| Documentation | README.md; AGENTS.md; this record; new docs/MAINTENANCE_REDESIGN_BRIEF.md and docs/SERVICE_SCOPE_REVIEW.md; .gitignore adds local .qa scratch output |
+| Preserved | package.json, dependency lock, favicon/logo wordmark, genuine photo assets, original data captions, GitHub Pages workflow, Vite configuration |
+
+Local proof images: test-results/brindle-maintenance-desktop.jpg and test-results/brindle-maintenance-mobile.jpg. Test outputs stay ignored. The project can be previewed using the README commands; no live-publication verification is claimed.
+
+---
+
+# Historical validation records — superseded versions
+
 # Cladding-focused revision / three comparisons — 5 November 2026
 
 The latest owner brief and explicit three-comparison limit supersede the historical wall-animation releases below. The site now leads with a photographic completion of original cladding image 1000020958, followed by three shared-component comparisons: exterior cladding, the retained patio pair, and a feature-wall/entertainment fit-out. The wall assembly, loop, controls, source geometry and publication assets are removed entirely.
@@ -188,4 +297,3 @@ Release application commit: `ca7491f2ac1a4a206df507befcee2b0134c1fabc`. GitHub A
 The public HTTPS page returned **200**. All **25 checked asset URLs** returned **200**, including all 18 photograph derivatives, entrypoint scripts/style, favicon, robots and the social image. The live site was opened in-browser and the 3D assembly verified. The final verification screenshot is saved locally at `test-results/brindle-live-desktop.jpg` (excluded from Git). No production application runtime error was observed; earlier development-server HMR connection messages are unrelated to the deployed static site.
 
 No remaining publishing step or paid service is required. Push future changes to `main` to rerun the deployment workflow. Cloudflare Pages remains an optional free alternative; exact steps are in the README.
-

@@ -1,6 +1,7 @@
 node_modules/
 dist/
 test-results/
+.qa/
 *.local
 .env*
 !.env.example

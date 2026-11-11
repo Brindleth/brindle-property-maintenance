@@ -1,19 +1,14 @@
-/** Public business details. Change here; never publish an unapproved rate or home address. */
+/** Approved public details. Never add an unapproved rate or residential address. */
 export const business = {
-  name: 'BRINDLE',
-  tagline: 'Property Maintenance & Smart Home Solutions',
-  fullName: 'BRINDLE — Property Maintenance & Smart Home Solutions',
+  name: 'brindle.',
+  tagline: 'Property Maintenance & Skilled Labour',
+  fullName: 'Brindle — Property Maintenance & Skilled Labour',
   phone: '0451 743 037',
   telephone: 'tel:+61451743037',
   serviceArea: 'Melbourne & surrounding areas',
-  availability: 'Call to discuss your project and current availability.',
+  availability: 'Call to discuss your job and current availability.',
   rate: 'Rates discussed by phone',
-  experience: '20+',
-  services: [
-    { number: '01', title: 'Framing & structure support', text: 'Steel framing, timber noggins, clips and battens, working to supplied project instructions.', tags: 'STEEL FRAMING / TIMBER NOGGINS / SITE SUPPORT' },
-    { number: '02', title: 'Wrap, cladding & finishing', text: 'Hands-on assistance with wrap, cladding, plasterboard, painting and nonregulated fit-out details.', tags: 'WRAP / CLADDING / PAINTING / FIT-OUT' },
-    { number: '03', title: 'Property & project support', text: 'Site preparation, materials, general maintenance and door, window, fascia and soffit assistance.', tags: 'PREPARATION / MATERIALS / GENERAL MAINTENANCE' },
-  ],
+  travel: 'Suitable projects in Adelaide and other locations may be considered, subject to the work permitted in that location and agreed travel arrangements. Any call-out or travel charges are disclosed before acceptance.',
   training: [
     ['CPCWHS1001', 'Construction induction'],
     ['RIIWHS204E', 'Working safely at heights'],
